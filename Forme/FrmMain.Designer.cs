@@ -29,10 +29,16 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.pnlMainContainer = new System.Windows.Forms.Panel();
             this.proizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.porudžbenicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unesiProizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porudžbenicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unesiPorudzbenicuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMainContainer = new System.Windows.Forms.Panel();
+            this.pretragaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brisanjeProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaPorudžbineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izmenaPorudžbineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kreiranjeRačunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +55,39 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // proizvodToolStripMenuItem
+            // 
+            this.proizvodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unesiProizvodToolStripMenuItem,
+            this.pretragaProizvodaToolStripMenuItem,
+            this.brisanjeProizvodaToolStripMenuItem});
+            this.proizvodToolStripMenuItem.Name = "proizvodToolStripMenuItem";
+            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+            this.proizvodToolStripMenuItem.Text = "Proizvod";
+            // 
+            // unesiProizvodToolStripMenuItem
+            // 
+            this.unesiProizvodToolStripMenuItem.Name = "unesiProizvodToolStripMenuItem";
+            this.unesiProizvodToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
+            this.unesiProizvodToolStripMenuItem.Text = "Unos novog proizvoda";
+            // 
+            // porudžbenicaToolStripMenuItem
+            // 
+            this.porudžbenicaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unesiPorudzbenicuToolStripMenuItem,
+            this.pretragaPorudžbineToolStripMenuItem,
+            this.izmenaPorudžbineToolStripMenuItem,
+            this.kreiranjeRačunaToolStripMenuItem});
+            this.porudžbenicaToolStripMenuItem.Name = "porudžbenicaToolStripMenuItem";
+            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 29);
+            this.porudžbenicaToolStripMenuItem.Text = "Porudžbina";
+            // 
+            // unesiPorudzbenicuToolStripMenuItem
+            // 
+            this.unesiPorudzbenicuToolStripMenuItem.Name = "unesiPorudzbenicuToolStripMenuItem";
+            this.unesiPorudzbenicuToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.unesiPorudzbenicuToolStripMenuItem.Text = "Unos nove porudžbine";
+            // 
             // pnlMainContainer
             // 
             this.pnlMainContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -58,25 +97,35 @@
             this.pnlMainContainer.Size = new System.Drawing.Size(800, 416);
             this.pnlMainContainer.TabIndex = 1;
             // 
-            // proizvodToolStripMenuItem
+            // pretragaProizvodaToolStripMenuItem
             // 
-            this.proizvodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.unesiProizvodToolStripMenuItem});
-            this.proizvodToolStripMenuItem.Name = "proizvodToolStripMenuItem";
-            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
-            this.proizvodToolStripMenuItem.Text = "Proizvod";
+            this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
+            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
+            this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
             // 
-            // porudžbenicaToolStripMenuItem
+            // brisanjeProizvodaToolStripMenuItem
             // 
-            this.porudžbenicaToolStripMenuItem.Name = "porudžbenicaToolStripMenuItem";
-            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(134, 29);
-            this.porudžbenicaToolStripMenuItem.Text = "Porudžbenica";
+            this.brisanjeProizvodaToolStripMenuItem.Name = "brisanjeProizvodaToolStripMenuItem";
+            this.brisanjeProizvodaToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
+            this.brisanjeProizvodaToolStripMenuItem.Text = "Brisanje proizvoda";
             // 
-            // unesiProizvodToolStripMenuItem
+            // pretragaPorudžbineToolStripMenuItem
             // 
-            this.unesiProizvodToolStripMenuItem.Name = "unesiProizvodToolStripMenuItem";
-            this.unesiProizvodToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.unesiProizvodToolStripMenuItem.Text = "Unesi proizvod";
+            this.pretragaPorudžbineToolStripMenuItem.Name = "pretragaPorudžbineToolStripMenuItem";
+            this.pretragaPorudžbineToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.pretragaPorudžbineToolStripMenuItem.Text = "Pretraga porudžbine";
+            // 
+            // izmenaPorudžbineToolStripMenuItem
+            // 
+            this.izmenaPorudžbineToolStripMenuItem.Name = "izmenaPorudžbineToolStripMenuItem";
+            this.izmenaPorudžbineToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.izmenaPorudžbineToolStripMenuItem.Text = "Izmena porudžbine";
+            // 
+            // kreiranjeRačunaToolStripMenuItem
+            // 
+            this.kreiranjeRačunaToolStripMenuItem.Name = "kreiranjeRačunaToolStripMenuItem";
+            this.kreiranjeRačunaToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.kreiranjeRačunaToolStripMenuItem.Text = "Kreiranje računa";
             // 
             // FrmMain
             // 
@@ -103,5 +152,11 @@
         private System.Windows.Forms.ToolStripMenuItem unesiProizvodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porudžbenicaToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMainContainer;
+        private System.Windows.Forms.ToolStripMenuItem unesiPorudzbenicuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaProizvodaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem brisanjeProizvodaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaPorudžbineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem izmenaPorudžbineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kreiranjeRačunaToolStripMenuItem;
     }
 }
