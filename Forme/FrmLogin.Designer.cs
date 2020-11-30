@@ -59,11 +59,13 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Prijavi se";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(365, 189);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(204, 26);
             this.txtPassword.TabIndex = 3;
             // 
@@ -79,18 +81,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(228, 195);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 20);
+            this.label2.Size = new System.Drawing.Size(46, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Šifra";
+            this.label2.Text = "Šifra:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(228, 132);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.Size = new System.Drawing.Size(114, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Korisničko ime";
+            this.label1.Text = "Korisničko ime:";
             // 
             // FrmLogin
             // 
@@ -101,7 +103,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Prijavljivanje";
+            this.Text = "Prijavljivanje radnika";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

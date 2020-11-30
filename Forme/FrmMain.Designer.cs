@@ -31,14 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.proizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unesiProizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.porudžbenicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unesiPorudzbenicuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlMainContainer = new System.Windows.Forms.Panel();
             this.pretragaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brisanjeProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porudžbenicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unesiPorudzbenicuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaPorudžbineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izmenaPorudžbineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kreiranjeRačunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMainContainer = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             this.pretragaProizvodaToolStripMenuItem,
             this.brisanjeProizvodaToolStripMenuItem});
             this.proizvodToolStripMenuItem.Name = "proizvodToolStripMenuItem";
-            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 32);
             this.proizvodToolStripMenuItem.Text = "Proizvod";
             // 
             // unesiProizvodToolStripMenuItem
@@ -70,32 +70,7 @@
             this.unesiProizvodToolStripMenuItem.Name = "unesiProizvodToolStripMenuItem";
             this.unesiProizvodToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
             this.unesiProizvodToolStripMenuItem.Text = "Unos novog proizvoda";
-            // 
-            // porudžbenicaToolStripMenuItem
-            // 
-            this.porudžbenicaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.unesiPorudzbenicuToolStripMenuItem,
-            this.pretragaPorudžbineToolStripMenuItem,
-            this.izmenaPorudžbineToolStripMenuItem,
-            this.kreiranjeRačunaToolStripMenuItem});
-            this.porudžbenicaToolStripMenuItem.Name = "porudžbenicaToolStripMenuItem";
-            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 29);
-            this.porudžbenicaToolStripMenuItem.Text = "Porudžbina";
-            // 
-            // unesiPorudzbenicuToolStripMenuItem
-            // 
-            this.unesiPorudzbenicuToolStripMenuItem.Name = "unesiPorudzbenicuToolStripMenuItem";
-            this.unesiPorudzbenicuToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
-            this.unesiPorudzbenicuToolStripMenuItem.Text = "Unos nove porudžbine";
-            // 
-            // pnlMainContainer
-            // 
-            this.pnlMainContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlMainContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pnlMainContainer.Location = new System.Drawing.Point(0, 36);
-            this.pnlMainContainer.Name = "pnlMainContainer";
-            this.pnlMainContainer.Size = new System.Drawing.Size(800, 416);
-            this.pnlMainContainer.TabIndex = 1;
+            this.unesiProizvodToolStripMenuItem.Click += new System.EventHandler(this.unesiProizvodToolStripMenuItem_Click);
             // 
             // pretragaProizvodaToolStripMenuItem
             // 
@@ -108,6 +83,24 @@
             this.brisanjeProizvodaToolStripMenuItem.Name = "brisanjeProizvodaToolStripMenuItem";
             this.brisanjeProizvodaToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
             this.brisanjeProizvodaToolStripMenuItem.Text = "Brisanje proizvoda";
+            // 
+            // porudžbenicaToolStripMenuItem
+            // 
+            this.porudžbenicaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unesiPorudzbenicuToolStripMenuItem,
+            this.pretragaPorudžbineToolStripMenuItem,
+            this.izmenaPorudžbineToolStripMenuItem,
+            this.kreiranjeRačunaToolStripMenuItem});
+            this.porudžbenicaToolStripMenuItem.Name = "porudžbenicaToolStripMenuItem";
+            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 32);
+            this.porudžbenicaToolStripMenuItem.Text = "Porudžbina";
+            // 
+            // unesiPorudzbenicuToolStripMenuItem
+            // 
+            this.unesiPorudzbenicuToolStripMenuItem.Name = "unesiPorudzbenicuToolStripMenuItem";
+            this.unesiPorudzbenicuToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.unesiPorudzbenicuToolStripMenuItem.Text = "Unos nove porudžbine";
+            this.unesiPorudzbenicuToolStripMenuItem.Click += new System.EventHandler(this.unesiPorudzbenicuToolStripMenuItem_Click);
             // 
             // pretragaPorudžbineToolStripMenuItem
             // 
@@ -127,10 +120,20 @@
             this.kreiranjeRačunaToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
             this.kreiranjeRačunaToolStripMenuItem.Text = "Kreiranje računa";
             // 
+            // pnlMainContainer
+            // 
+            this.pnlMainContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlMainContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMainContainer.Location = new System.Drawing.Point(0, 36);
+            this.pnlMainContainer.Name = "pnlMainContainer";
+            this.pnlMainContainer.Size = new System.Drawing.Size(800, 414);
+            this.pnlMainContainer.TabIndex = 1;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlMainContainer);
             this.Controls.Add(this.menuStrip1);
