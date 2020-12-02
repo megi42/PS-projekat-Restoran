@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public enum ProductType
+    public class Table
     {
-        Piće = 1,
-        Hrana = 2,
+        public int TableNumber { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Domain
     {
         public int OrderId { get; set; }
         public DateTime DateTime { get; set; }
-        public int Table { get; set; }
+        public Table Table { get; set; }
         public double TotalWithoutVAT { get; set; }
         public double TotalWithVAT { get; set; }
         public Currency Currency { get; set; }

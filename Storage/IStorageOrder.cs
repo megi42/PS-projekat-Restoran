@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Storage
 {
-    public enum MeasurmentUnit
+    public interface IStorageOrder
     {
-        ml = 1,
-        l = 2,
-        g = 3,
-        kg = 3,
     }
 }

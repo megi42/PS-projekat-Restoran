@@ -23,5 +23,19 @@ namespace Forme.Helpers
                 return true;
             }
         }
+
+        public static bool EmptyFieldValidationCB(ComboBox cb)
+        {
+            if (cb.SelectedIndex == -1)
+            {
+                cb.BackColor = Color.LightCoral;
+                return false;
+            }
+            else
+            {
+                cb.BackColor = Color.White;
+                return true;
+            }
+        }
     }
 }

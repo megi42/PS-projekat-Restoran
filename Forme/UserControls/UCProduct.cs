@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain;
+using Forme.Helpers;
+using ControllerBL;
 
 namespace Forme.UserControls
 {
@@ -15,6 +18,43 @@ namespace Forme.UserControls
         public UCProduct()
         {
             InitializeComponent();
+        }
+
+        private void UCProduct_Load(object sender, EventArgs e)
+        {
+            cbType.DataSource = Enum.GetValues(typeof(ProductType));
+            cbCurrency.DataSource = Enum.GetValues(typeof(Currency));
+
+            cbType.SelectedIndex = -1;
+            cbCurrency.SelectedIndex = -1;
+
+            cbType.Text = "Izaberite tip proizvoda";
+            cbCurrency.Text = "Izaberite valutu";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!UserControlHelpers.EmptyFieldValidation(txtName) | !UserControlHelpers.EmptyFieldValidation(txtPrice) | !UserControlHelpers.EmptyFieldValidation(txtVAT) | !UserControlHelpers.EmptyFieldValidationCB(cbType) | !UserControlHelpers.EmptyFieldValidationCB(cbCurrency))
+            {
+                MessageBox.Show("Sva polja su obavezna!");
+                return;
+            }
+            Product p = new Product();
+            p.Name = txtName.Text;
+            p.PriceWithoutVAT = Double.Parse(txtPrice.Text);
+            p.VAT = Double.Parse(txtVAT.Text);
+            p.Currency = (Currency)cbCurrency.SelectedItem;
+            p.Type = (ProductType)cbType.SelectedItem;
+
+            try
+            {
+                Controller.Instance.SaveProduct(p);
+                MessageBox.Show("Proizvod je sačuvan");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

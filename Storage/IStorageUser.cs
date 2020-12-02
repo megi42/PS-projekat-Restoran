@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Storage
 {
-    public enum ProductType
+    public interface IStorageUser
     {
-        Piće = 1,
-        Hrana = 2,
+        List<User> GetAll();
     }
 }

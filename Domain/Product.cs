@@ -15,7 +15,5 @@ namespace Domain
         public double PriceWithVAT { get; set; }
         public Currency Currency { get; set; }
         public ProductType Type { get; set; }
-        public MeasurmentUnit Unit { get; set; }
-        public string Manufacturer { get; set; }
     }
 }

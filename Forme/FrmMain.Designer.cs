@@ -45,6 +45,7 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proizvodToolStripMenuItem,
@@ -62,7 +63,7 @@
             this.pretragaProizvodaToolStripMenuItem,
             this.brisanjeProizvodaToolStripMenuItem});
             this.proizvodToolStripMenuItem.Name = "proizvodToolStripMenuItem";
-            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 32);
+            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
             this.proizvodToolStripMenuItem.Text = "Proizvod";
             // 
             // unesiProizvodToolStripMenuItem
@@ -92,7 +93,7 @@
             this.izmenaPorudžbineToolStripMenuItem,
             this.kreiranjeRačunaToolStripMenuItem});
             this.porudžbenicaToolStripMenuItem.Name = "porudžbenicaToolStripMenuItem";
-            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 32);
+            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 29);
             this.porudžbenicaToolStripMenuItem.Text = "Porudžbina";
             // 
             // unesiPorudzbenicuToolStripMenuItem
@@ -141,6 +142,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Početna strana";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
