@@ -124,7 +124,7 @@
             // pnlMainContainer
             // 
             this.pnlMainContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlMainContainer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlMainContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlMainContainer.Location = new System.Drawing.Point(0, 36);
             this.pnlMainContainer.Name = "pnlMainContainer";
             this.pnlMainContainer.Size = new System.Drawing.Size(800, 414);
