@@ -61,6 +61,12 @@
     <Compile Include="Helpers\UserControlHelpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UCAllProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCAllProducts.Designer.cs">
+      <DependentUpon>UCAllProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCOrder.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCAllProducts.resx">
+      <DependentUpon>UCAllProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCOrder.resx">
       <DependentUpon>UCOrder.cs</DependentUpon>
     </EmbeddedResource>

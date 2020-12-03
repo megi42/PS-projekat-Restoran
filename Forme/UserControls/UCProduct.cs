@@ -51,9 +51,9 @@ namespace Forme.UserControls
                 Controller.Instance.SaveProduct(p);
                 MessageBox.Show("Proizvod je sačuvan");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Sistem ne može da sačuva proizvod!");
             }
         }
     }

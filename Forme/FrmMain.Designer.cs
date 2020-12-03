@@ -39,7 +39,9 @@
             this.izmenaPorudžbineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kreiranjeRačunaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMainContainer = new System.Windows.Forms.Panel();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.pnlMainContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -78,12 +80,14 @@
             this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
             this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
             this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
+            this.pretragaProizvodaToolStripMenuItem.Click += new System.EventHandler(this.pretragaProizvodaToolStripMenuItem_Click);
             // 
             // brisanjeProizvodaToolStripMenuItem
             // 
             this.brisanjeProizvodaToolStripMenuItem.Name = "brisanjeProizvodaToolStripMenuItem";
             this.brisanjeProizvodaToolStripMenuItem.Size = new System.Drawing.Size(297, 34);
             this.brisanjeProizvodaToolStripMenuItem.Text = "Brisanje proizvoda";
+            this.brisanjeProizvodaToolStripMenuItem.Click += new System.EventHandler(this.brisanjeProizvodaToolStripMenuItem_Click);
             // 
             // porudžbenicaToolStripMenuItem
             // 
@@ -93,7 +97,7 @@
             this.izmenaPorudžbineToolStripMenuItem,
             this.kreiranjeRačunaToolStripMenuItem});
             this.porudžbenicaToolStripMenuItem.Name = "porudžbenicaToolStripMenuItem";
-            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 29);
+            this.porudžbenicaToolStripMenuItem.Size = new System.Drawing.Size(117, 32);
             this.porudžbenicaToolStripMenuItem.Text = "Porudžbina";
             // 
             // unesiPorudzbenicuToolStripMenuItem
@@ -125,10 +129,22 @@
             // 
             this.pnlMainContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlMainContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlMainContainer.Controls.Add(this.lblWelcome);
+            this.pnlMainContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMainContainer.Location = new System.Drawing.Point(0, 36);
             this.pnlMainContainer.Name = "pnlMainContainer";
             this.pnlMainContainer.Size = new System.Drawing.Size(800, 414);
             this.pnlMainContainer.TabIndex = 1;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(323, 26);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(106, 37);
+            this.lblWelcome.TabIndex = 0;
+            this.lblWelcome.Text = "label1";
             // 
             // FrmMain
             // 
@@ -145,6 +161,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.pnlMainContainer.ResumeLayout(false);
+            this.pnlMainContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +181,6 @@
         private System.Windows.Forms.ToolStripMenuItem pretragaPorudžbineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem izmenaPorudžbineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kreiranjeRačunaToolStripMenuItem;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }

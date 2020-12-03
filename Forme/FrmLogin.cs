@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using ControllerBL;
+using Domain;
 using Forme.Helpers;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ namespace Forme
             }
             try
             {
+                User u = Controller.Instance.Login(txtUsername.Text, txtPassword.Text);
+                MessageBox.Show($"Korisnik {u.FirstName} {u.LastName} se uspesno prijavio!");
                 FrmMain frmMain = new FrmMain();
                 this.Visible = false;
                 frmMain.ShowDialog();

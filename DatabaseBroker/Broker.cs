@@ -15,6 +15,29 @@ namespace DatabaseBroker
         {
             connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Products;Integrated Security=True;");
         }
+
+        public List<User> GetAllUsers()
+        {
+            List<User> users = new List<User>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "select * from Userr";
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                User u = new User()
+                {
+                    Id = (int)reader[0],
+                    Username = (string)reader[1],
+                    Password = (string)reader[2],
+                    FirstName = (string)reader[3],
+                    LastName = (string)reader[4],
+                };
+                users.Add(u);
+            }
+            reader.Close();
+            return users;
+        }
+
         public void OpenConnection()
         {
             connection.Open();
@@ -30,7 +53,7 @@ namespace DatabaseBroker
             {
                 Product p = new Product()
                 {
-                    ProductId = (int)reader["Id"],
+                    ProductId = (int)reader[0],
                     Name = (string)reader[1],
                     PriceWithoutVAT = (double)reader[2],
                     VAT = (double)reader[3],

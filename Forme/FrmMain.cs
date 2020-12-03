@@ -1,4 +1,5 @@
-﻿using Forme.UserControls;
+﻿using ControllerBL;
+using Forme.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Forme
         public FrmMain()
         {
             InitializeComponent();
+            lblWelcome.Text = $"Welcome, {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}";
         }
 
         private void unesiProizvodToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +40,16 @@ namespace Forme
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUserControl(new UCAllProducts());
+        }
+
+        private void brisanjeProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUserControl(new UCAllProducts());
         }
     }
 }
