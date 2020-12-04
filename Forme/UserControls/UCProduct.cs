@@ -39,17 +39,23 @@ namespace Forme.UserControls
                 MessageBox.Show("Sva polja su obavezna!");
                 return;
             }
-            Product p = new Product();
-            p.Name = txtName.Text;
-            p.PriceWithoutVAT = Double.Parse(txtPrice.Text);
-            p.VAT = Double.Parse(txtVAT.Text);
-            p.Currency = (Currency)cbCurrency.SelectedItem;
-            p.Type = (ProductType)cbType.SelectedItem;
+            if(!UserControlHelpers.CheckDoubleType(txtPrice) | !UserControlHelpers.CheckDoubleType(txtVAT))
+            {
+                MessageBox.Show("Pogrešan unos!");
+                return;
+            }
 
             try
             {
+                Product p = new Product();
+                p.Name = txtName.Text;
+                p.PriceWithoutVAT = Double.Parse(txtPrice.Text);
+                p.VAT = Double.Parse(txtVAT.Text);
+                p.Currency = (Currency)cbCurrency.SelectedItem;
+                p.Type = (ProductType)cbType.SelectedItem;
                 Controller.Instance.SaveProduct(p);
                 MessageBox.Show("Proizvod je sačuvan");
+                this.Visible = false;
             }
             catch (Exception)
             {

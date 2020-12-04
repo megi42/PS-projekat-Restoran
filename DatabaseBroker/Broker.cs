@@ -60,6 +60,8 @@ namespace DatabaseBroker
                     PriceWithVAT = (double)reader[4],
                     Currency = (Currency)reader[5],
                     Type = (ProductType)reader[6],
+                    UserId = (int)reader[7]
+                    
                 };
                 res.Add(p);
             }
@@ -72,29 +74,22 @@ namespace DatabaseBroker
             connection.Close();
         }
 
-        public int GetNewProductId()
-        {
-            object result = 0;
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "select max(id) from product";
-            result = command.ExecuteScalar();
-            if (result is DBNull)
-            {
-                return 1;
-            }
-            else
-            {
-                return ((int)result + 1);
-            }
-        }
-
         public void SaveProduct(Product p)
         {
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = $"insert into product values ({p.ProductId}, '{p.Name}', {p.PriceWithoutVAT}, {p.VAT}, {p.PriceWithVAT}, {(int)p.Currency}, {(int)p.Type})";
+            command.CommandText = $"insert into product values (@Name, @PriceWithoutVAT, @VAT, @PriceWithVAT, @Currency, @Type, @User)";
+
+            command.Parameters.AddWithValue("@Name", p.Name);
+            command.Parameters.AddWithValue("@PriceWithoutVAT", p.PriceWithoutVAT);
+            command.Parameters.AddWithValue("@VAT", p.VAT);
+            command.Parameters.AddWithValue("@PriceWithVAT", p.PriceWithVAT);
+            command.Parameters.AddWithValue("@Currency", p.Currency);
+            command.Parameters.AddWithValue("@Type", p.Type);
+            command.Parameters.AddWithValue("@User", p.UserId);
+
             if (command.ExecuteNonQuery() != 1)
             {
-                throw new Exception("Database error!");
+                throw new Exception("Greška u bazi podataka!");
             }
         }
     }

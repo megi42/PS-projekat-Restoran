@@ -30,7 +30,7 @@ namespace Forme
             try
             {
                 User u = Controller.Instance.Login(txtUsername.Text, txtPassword.Text);
-                MessageBox.Show($"Korisnik {u.FirstName} {u.LastName} se uspesno prijavio!");
+                MessageBox.Show($"Korisnik {u.FirstName} {u.LastName} se uspešno prijavio!");
                 FrmMain frmMain = new FrmMain();
                 this.Visible = false;
                 frmMain.ShowDialog();

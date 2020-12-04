@@ -29,8 +29,7 @@ namespace Storage.Implementation.SqlServer
             try
             {
                 broker.OpenConnection();
-                product.ProductId = broker.GetNewProductId();
-                product.PriceWithVAT = product.PriceWithoutVAT + (product.PriceWithoutVAT * product.VAT) / 100;
+                product.PriceWithVAT = Math.Round((product.PriceWithoutVAT + (product.PriceWithoutVAT * product.VAT) / 100),2);
                 broker.SaveProduct(product);
             }
             finally
