@@ -32,11 +32,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtTable = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtPieces = new System.Windows.Forms.TextBox();
+            this.cbProduct = new System.Windows.Forms.ComboBox();
+            this.cbTable = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -76,13 +76,6 @@
             this.btnSave.Text = "Sačuvaj porudžbinu";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // txtTable
-            // 
-            this.txtTable.Location = new System.Drawing.Point(132, 76);
-            this.txtTable.Name = "txtTable";
-            this.txtTable.Size = new System.Drawing.Size(180, 26);
-            this.txtTable.TabIndex = 11;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -101,31 +94,39 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Količina:";
             // 
-            // textBox1
+            // txtPieces
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 169);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 26);
-            this.textBox1.TabIndex = 14;
+            this.txtPieces.Location = new System.Drawing.Point(132, 169);
+            this.txtPieces.Name = "txtPieces";
+            this.txtPieces.Size = new System.Drawing.Size(180, 26);
+            this.txtPieces.TabIndex = 14;
             // 
-            // comboBox1
+            // cbProduct
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 123);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 28);
-            this.comboBox1.TabIndex = 15;
+            this.cbProduct.FormattingEnabled = true;
+            this.cbProduct.Location = new System.Drawing.Point(132, 123);
+            this.cbProduct.Name = "cbProduct";
+            this.cbProduct.Size = new System.Drawing.Size(180, 28);
+            this.cbProduct.TabIndex = 15;
+            // 
+            // cbTable
+            // 
+            this.cbTable.FormattingEnabled = true;
+            this.cbTable.Location = new System.Drawing.Point(132, 73);
+            this.cbTable.Name = "cbTable";
+            this.cbTable.Size = new System.Drawing.Size(180, 28);
+            this.cbTable.TabIndex = 16;
             // 
             // UCOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cbTable);
+            this.Controls.Add(this.cbProduct);
+            this.Controls.Add(this.txtPieces);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTable);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label4);
@@ -144,10 +145,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtTable;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtPieces;
+        private System.Windows.Forms.ComboBox cbProduct;
+        private System.Windows.Forms.ComboBox cbTable;
     }
 }
