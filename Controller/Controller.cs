@@ -56,17 +56,22 @@ namespace ControllerBL
             storageProduct.Save(p);
         }
 
-        //public User GetUserWithID(int id)
-        //{
-        //    List<User> users = storageUser.GetAll();
-        //    foreach(User u in users)
-        //    {
-        //        if(u.Id == id)
-        //        {
-        //            return u;
-        //        }
-        //    }
-        //    return null;
-        //}
+        public List<User> GetALLUsers()
+        {
+            return storageUser.GetAll();
+        }
+
+        public User GetUserWithID(int id)
+        {
+            List<User> users = GetALLUsers();
+            foreach(User u in users)
+            {
+                if(u.Id == id)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
     }
 }

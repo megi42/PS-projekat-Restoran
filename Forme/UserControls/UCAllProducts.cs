@@ -30,9 +30,7 @@ namespace Forme.UserControls
             dgvProducts.Columns["PriceWithVAT"].HeaderText = "Cena sa PDV-om";
             dgvProducts.Columns["Currency"].HeaderText = "Valuta";
             dgvProducts.Columns["Type"].HeaderText = "Tip";
-            //dgvProducts.Columns["UserId"].HeaderText = "Radnik";
-            dgvProducts.Columns["UserId"].Visible = false;
-            //??kako da mi se prikaze ime i prezime radnika koji je uneo proizvod???
+            dgvProducts.Columns["UserId"].HeaderText = "Šifra radnika";
 
         }
     }
