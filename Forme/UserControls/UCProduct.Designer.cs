@@ -44,6 +44,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(274, 19);
@@ -54,6 +55,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(45, 102);
             this.label3.Name = "label3";
@@ -63,6 +65,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(426, 96);
             this.label4.Name = "label4";
@@ -72,6 +75,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(426, 141);
             this.label5.Name = "label5";
@@ -81,6 +85,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(426, 190);
             this.label7.Name = "label7";
@@ -90,6 +95,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(45, 146);
             this.label8.Name = "label8";
@@ -99,6 +105,7 @@
             // 
             // txtName
             // 
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtName.Location = new System.Drawing.Point(194, 96);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(164, 26);
@@ -106,6 +113,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrice.Location = new System.Drawing.Point(593, 90);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(164, 26);
@@ -113,6 +121,7 @@
             // 
             // txtVAT
             // 
+            this.txtVAT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVAT.Location = new System.Drawing.Point(593, 137);
             this.txtVAT.Name = "txtVAT";
             this.txtVAT.Size = new System.Drawing.Size(164, 26);
@@ -120,6 +129,7 @@
             // 
             // cbCurrency
             // 
+            this.cbCurrency.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbCurrency.FormattingEnabled = true;
             this.cbCurrency.Location = new System.Drawing.Point(593, 182);
             this.cbCurrency.Name = "cbCurrency";
@@ -128,6 +138,7 @@
             // 
             // cbType
             // 
+            this.cbType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbType.FormattingEnabled = true;
             this.cbType.Location = new System.Drawing.Point(194, 138);
             this.cbType.Name = "cbType";
@@ -136,6 +147,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.Location = new System.Drawing.Point(279, 257);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(264, 51);

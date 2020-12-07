@@ -14,5 +14,7 @@ namespace Domain
         public double TotalWithoutVAT { get; set; }
         public double TotalWithVAT { get; set; }
         public Currency Currency { get; set; }
+        public User User { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

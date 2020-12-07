@@ -8,7 +8,7 @@ namespace Domain
 {
     public class OrderItem
     {
-        public int OrderItemId { get; set; }
+        public int Number { get; set; }
         public int Pieces { get; set; }
         public double PriceWithoutVAT { get; set; }
         public double PriceWithVAT { get; set; }

@@ -17,7 +17,7 @@ namespace Forme
         public FrmMain()
         {
             InitializeComponent();
-            lblWelcome.Text = $"Welcome, {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}";
+            lblWelcome.Text = $"Dobro došli, {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}!";
         }
 
         private void unesiProizvodToolStripMenuItem_Click(object sender, EventArgs e)

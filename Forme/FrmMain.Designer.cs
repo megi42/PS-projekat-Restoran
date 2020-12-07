@@ -54,7 +54,7 @@
             this.porudžbenicaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1053, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,7 +65,7 @@
             this.pretragaProizvodaToolStripMenuItem,
             this.brisanjeProizvodaToolStripMenuItem});
             this.proizvodToolStripMenuItem.Name = "proizvodToolStripMenuItem";
-            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+            this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(98, 32);
             this.proizvodToolStripMenuItem.Text = "Proizvod";
             // 
             // unesiProizvodToolStripMenuItem
@@ -127,20 +127,20 @@
             // 
             // pnlMainContainer
             // 
-            this.pnlMainContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlMainContainer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pnlMainContainer.Controls.Add(this.lblWelcome);
+            this.pnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlMainContainer.Location = new System.Drawing.Point(0, 36);
+            this.pnlMainContainer.Location = new System.Drawing.Point(0, 33);
             this.pnlMainContainer.Name = "pnlMainContainer";
-            this.pnlMainContainer.Size = new System.Drawing.Size(800, 414);
+            this.pnlMainContainer.Size = new System.Drawing.Size(1053, 621);
             this.pnlMainContainer.TabIndex = 1;
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(323, 26);
+            this.lblWelcome.Location = new System.Drawing.Point(545, 26);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(106, 37);
             this.lblWelcome.TabIndex = 0;
@@ -151,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1053, 654);
             this.Controls.Add(this.pnlMainContainer);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
