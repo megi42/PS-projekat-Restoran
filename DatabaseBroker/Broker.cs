@@ -47,7 +47,7 @@ namespace DatabaseBroker
         {
             List<Product> res = new List<Product>();
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = "select * from product";
+            command.CommandText = "select * from product p join Userr u on (p.UserId=u.Id)";
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -60,7 +60,14 @@ namespace DatabaseBroker
                     PriceWithVAT = (double)reader[4],
                     Currency = (Currency)reader[5],
                     Type = (ProductType)reader[6],
-                    UserId = (int)reader[7]
+                    User = new User
+                    {
+                        Id = (int)reader[7],
+                        Username = (string)reader[9],
+                        Password = (string)reader[10],
+                        FirstName = (string)reader[11],
+                        LastName = (string)reader[12],
+                    }
                     
                 };
                 res.Add(p);
@@ -85,7 +92,7 @@ namespace DatabaseBroker
             command.Parameters.AddWithValue("@PriceWithVAT", p.PriceWithVAT);
             command.Parameters.AddWithValue("@Currency", p.Currency);
             command.Parameters.AddWithValue("@Type", p.Type);
-            command.Parameters.AddWithValue("@User", p.UserId);
+            command.Parameters.AddWithValue("@User", p.User.Id);
 
             if (command.ExecuteNonQuery() != 1)
             {

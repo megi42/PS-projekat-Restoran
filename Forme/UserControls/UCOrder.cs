@@ -16,7 +16,7 @@ namespace Forme.UserControls
         public UCOrder()
         {
             InitializeComponent();
-            lblUser.Text = $"Prijavljen korisnik: {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}";
+            lblUser.Text = $"Korisnik: {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}";
         }
     }
 }

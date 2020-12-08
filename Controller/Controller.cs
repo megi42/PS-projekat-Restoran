@@ -52,26 +52,13 @@ namespace ControllerBL
 
         public void SaveProduct(Product p)
         {
-            p.UserId = LoggedInUser.Id;
+            p.User = LoggedInUser;
             storageProduct.Save(p);
         }
 
         public List<User> GetALLUsers()
         {
             return storageUser.GetAll();
-        }
-
-        public User GetUserWithID(int id)
-        {
-            List<User> users = GetALLUsers();
-            foreach(User u in users)
-            {
-                if(u.Id == id)
-                {
-                    return u;
-                }
-            }
-            return null;
         }
     }
 }
