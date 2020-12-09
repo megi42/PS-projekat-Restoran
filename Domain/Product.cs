@@ -16,5 +16,9 @@ namespace Domain
         public Currency Currency { get; set; }
         public ProductType Type { get; set; }
         public User User { get; set; }
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

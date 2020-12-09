@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Storage
 {
-    public enum Currency
+    public interface IStorageTable
     {
-        RSD = 1,
+        List<Table> GetAll();
     }
 }

@@ -13,6 +13,7 @@ namespace ControllerBL
     {
         private IStorageUser storageUser;
         private IStorageProduct storageProduct;
+        private IStorageTable storageTable;
         public User LoggedInUser { get; set; }
 
         private static Controller controller;
@@ -28,10 +29,16 @@ namespace ControllerBL
             }
         }
 
+        public List<Table> GetAllTables()
+        {
+            return storageTable.GetAll();
+        }
+
         private Controller()
         {
             storageProduct = new StorageProductSqlServer();
             storageUser = new StorageUserSqlServer();
+            storageTable = new StorageTableSqlServer();
         }
         public User Login(string username, string password)
         {

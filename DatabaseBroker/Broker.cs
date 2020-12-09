@@ -16,6 +16,24 @@ namespace DatabaseBroker
             connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Products;Integrated Security=True;");
         }
 
+        public List<Table> GetAllTables()
+        {
+            List<Table> tables = new List<Table>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "select * from Tablee";
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Table t = new Table()
+                {
+                    TableNumber = (int)reader[0]
+                };
+                tables.Add(t);
+            }
+            reader.Close();
+            return tables;
+        }
+
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();

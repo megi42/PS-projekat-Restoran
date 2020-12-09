@@ -9,5 +9,9 @@ namespace Domain
     public class Table
     {
         public int TableNumber { get; set; }
+        public override string ToString()
+        {
+            return $"{TableNumber}";
+        }
     }
 }

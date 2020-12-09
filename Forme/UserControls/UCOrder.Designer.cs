@@ -38,15 +38,19 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvItems = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotalVAT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCurrency = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbProduct = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPieces = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +58,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Location = new System.Drawing.Point(17, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(301, 29);
             this.label1.TabIndex = 0;
@@ -64,7 +68,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(238, 49);
+            this.label4.Location = new System.Drawing.Point(14, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 3;
@@ -72,12 +76,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(570, 25);
+            this.btnAdd.Location = new System.Drawing.Point(324, 103);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(74, 69);
+            this.btnAdd.Size = new System.Drawing.Size(159, 38);
             this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.Text = "Dodaj stavku";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
@@ -88,12 +93,13 @@
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Sačuvaj porudžbinu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbTable
             // 
             this.cbTable.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbTable.FormattingEnabled = true;
-            this.cbTable.Location = new System.Drawing.Point(318, 41);
+            this.cbTable.Location = new System.Drawing.Point(93, 41);
             this.cbTable.Name = "cbTable";
             this.cbTable.Size = new System.Drawing.Size(70, 28);
             this.cbTable.TabIndex = 16;
@@ -102,7 +108,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 49);
+            this.label2.Location = new System.Drawing.Point(324, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 20);
             this.label2.TabIndex = 17;
@@ -112,9 +118,9 @@
             // 
             this.txtDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDate.Enabled = false;
-            this.txtDate.Location = new System.Drawing.Point(67, 43);
+            this.txtDate.Location = new System.Drawing.Point(384, 3);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(123, 26);
+            this.txtDate.Size = new System.Drawing.Size(99, 26);
             this.txtDate.TabIndex = 18;
             // 
             // lblUser
@@ -130,34 +136,40 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.btnRemove);
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Location = new System.Drawing.Point(2, 77);
+            this.groupBox1.Controls.Add(this.dgvItems);
+            this.groupBox1.Location = new System.Drawing.Point(3, 141);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 257);
+            this.groupBox1.Size = new System.Drawing.Size(654, 195);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stavke porudžbine:";
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(570, 113);
+            this.btnRemove.Location = new System.Drawing.Point(490, 104);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(74, 69);
+            this.btnRemove.Size = new System.Drawing.Size(159, 37);
             this.btnRemove.TabIndex = 8;
-            this.btnRemove.Text = "Izbriši";
+            this.btnRemove.Text = "Izbriši stavku";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // dataGridView1
+            // dgvItems
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(555, 219);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvItems.AllowUserToAddRows = false;
+            this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AllowUserToResizeColumns = false;
+            this.dgvItems.AllowUserToResizeRows = false;
+            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItems.Location = new System.Drawing.Point(9, 25);
+            this.dgvItems.MultiSelect = false;
+            this.dgvItems.Name = "dgvItems";
+            this.dgvItems.ReadOnly = true;
+            this.dgvItems.RowHeadersWidth = 62;
+            this.dgvItems.RowTemplate.Height = 28;
+            this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvItems.Size = new System.Drawing.Size(637, 164);
+            this.dgvItems.TabIndex = 0;
             // 
             // label5
             // 
@@ -216,11 +228,54 @@
             this.txtCurrency.Size = new System.Drawing.Size(100, 26);
             this.txtCurrency.TabIndex = 27;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Proizvod:";
+            // 
+            // cbProduct
+            // 
+            this.cbProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbProduct.FormattingEnabled = true;
+            this.cbProduct.Location = new System.Drawing.Point(93, 75);
+            this.cbProduct.Name = "cbProduct";
+            this.cbProduct.Size = new System.Drawing.Size(121, 28);
+            this.cbProduct.TabIndex = 29;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 117);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 20);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Količina:";
+            // 
+            // txtPieces
+            // 
+            this.txtPieces.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPieces.Location = new System.Drawing.Point(93, 109);
+            this.txtPieces.Name = "txtPieces";
+            this.txtPieces.Size = new System.Drawing.Size(100, 26);
+            this.txtPieces.TabIndex = 31;
+            // 
             // UCOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.txtPieces);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.cbProduct);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCurrency);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtTotalVAT);
@@ -239,7 +294,7 @@
             this.Name = "UCOrder";
             this.Size = new System.Drawing.Size(668, 404);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,12 +312,16 @@
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotalVAT;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCurrency;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbProduct;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPieces;
     }
 }
