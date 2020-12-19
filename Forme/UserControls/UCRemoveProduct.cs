@@ -12,19 +12,20 @@ using ControllerBL;
 
 namespace Forme.UserControls
 {
-    public partial class UCAllProducts : UserControl
+    public partial class UCRemoveProduct : UserControl
     {
-        List<Product> products;
-        public UCAllProducts()
+        private BindingList<Product> bindingProducts;
+        public UCRemoveProduct()
         {
             InitializeComponent();
         }
 
-        private void UCAllProducts_Load(object sender, EventArgs e)
+        private void UCRemoveProduct_Load(object sender, EventArgs e)
         {
-            products = Controller.Instance.GetAllProducts();
+            List<Product> products = Controller.Instance.GetAllProducts();
+            bindingProducts = new BindingList<Product>(products);
 
-            dgvProducts.DataSource = products;
+            dgvProducts.DataSource = bindingProducts;
             dgvProducts.Columns["ProductId"].Visible = false;
             dgvProducts.Columns["Name"].HeaderText = "Naziv";
             dgvProducts.Columns["PriceWithoutVAT"].HeaderText = "Cena";
@@ -42,7 +43,7 @@ namespace Forme.UserControls
             string searchText = txtSearch.Text;
             string searchTextToLower = searchText.ToLower();
 
-            foreach (Product p in products)
+            foreach (Product p in bindingProducts)
             {
                 string pNameToLower = p.Name.ToLower();
                 if (pNameToLower.Contains(searchTextToLower))
@@ -51,6 +52,28 @@ namespace Forme.UserControls
                 }
             }
             dgvProducts.DataSource = newBindingProducts;
+        }
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (dgvProducts.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvProducts.SelectedRows[0];
+                Product product = (Product)row.DataBoundItem;
+                try
+                {
+                    Controller.Instance.DeleteProduct(product);
+                    MessageBox.Show("Proizvod je obrisan!");
+                    this.Visible = false;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sistem ne može da obriše proizvod!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nije odabran proizvod za prisanje!");
+            }
         }
     }
 }

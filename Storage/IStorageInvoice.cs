@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Storage
 {
-    public interface IStorageProduct
+    public interface IStorageInvoice
     {
-        List<Product> GetAll();
-        void Save(Product product);
-        void Delete(Product product);
+        List<Invoice> GetAll();
+        void Save(Invoice invoice);
     }
 }

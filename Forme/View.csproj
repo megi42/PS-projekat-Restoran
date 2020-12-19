@@ -76,11 +76,29 @@
     <Compile Include="Helpers\UserControlHelpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UCAllOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCAllOrders.Designer.cs">
+      <DependentUpon>UCAllOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCAllProducts.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UCAllProducts.Designer.cs">
       <DependentUpon>UCAllProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCChangeOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCChangeOrder.Designer.cs">
+      <DependentUpon>UCChangeOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCInvoice.Designer.cs">
+      <DependentUpon>UCInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCOrder.cs">
       <SubType>UserControl</SubType>
@@ -93,6 +111,12 @@
     </Compile>
     <Compile Include="UserControls\UCProduct.Designer.cs">
       <DependentUpon>UCProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCRemoveProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCRemoveProduct.Designer.cs">
+      <DependentUpon>UCRemoveProduct.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -109,14 +133,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCAllOrders.resx">
+      <DependentUpon>UCAllOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCAllProducts.resx">
       <DependentUpon>UCAllProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCChangeOrder.resx">
+      <DependentUpon>UCChangeOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCInvoice.resx">
+      <DependentUpon>UCInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCOrder.resx">
       <DependentUpon>UCOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCProduct.resx">
       <DependentUpon>UCProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCRemoveProduct.resx">
+      <DependentUpon>UCRemoveProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

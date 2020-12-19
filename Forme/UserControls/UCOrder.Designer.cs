@@ -37,8 +37,8 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAdd.Location = new System.Drawing.Point(324, 103);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(159, 38);
@@ -144,16 +145,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stavke porudžbine:";
             // 
-            // btnRemove
-            // 
-            this.btnRemove.Location = new System.Drawing.Point(490, 104);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(159, 37);
-            this.btnRemove.TabIndex = 8;
-            this.btnRemove.Text = "Izbriši stavku";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
             // dgvItems
             // 
             this.dgvItems.AllowUserToAddRows = false;
@@ -170,6 +161,17 @@
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(637, 164);
             this.dgvItems.TabIndex = 0;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRemove.Location = new System.Drawing.Point(490, 104);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(159, 37);
+            this.btnRemove.TabIndex = 8;
+            this.btnRemove.Text = "Izbriši stavku";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // label5
             // 

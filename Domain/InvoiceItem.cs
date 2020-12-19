@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class OrderItem
+    public class InvoiceItem
     {
+        public int InvoiceId { get; set; }
         public int OrderId { get; set; }
         public int Number { get; set; }
         public Product Product { get; set; }

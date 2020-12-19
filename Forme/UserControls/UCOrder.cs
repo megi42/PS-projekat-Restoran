@@ -22,8 +22,10 @@ namespace Forme.UserControls
             lblUser.Text = $"Korisnik: {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}";
 
             cbTable.DataSource = Controller.Instance.GetAllTables();
+            cbTable.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTable.SelectedIndex = -1;
             cbProduct.DataSource = Controller.Instance.GetAllProducts();
+            cbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
             cbProduct.SelectedIndex = -1;
 
             InitDataGridView(); 
@@ -32,6 +34,7 @@ namespace Forme.UserControls
         private void InitDataGridView()
         {
             dgvItems.DataSource = bindingItems;
+            dgvItems.Columns["OrderId"].Visible = false;
             dgvItems.Columns["Number"].HeaderText = "RB";
             dgvItems.Columns["Product"].HeaderText = "Proizvod";
             dgvItems.Columns["Pieces"].HeaderText = "Komada";
@@ -44,7 +47,7 @@ namespace Forme.UserControls
 
         double total = 0;
         double totalVAT = 0;
-        Currency currency = Currency.RSD;
+        Currency currency;
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -55,12 +58,14 @@ namespace Forme.UserControls
             }
             if (!int.TryParse(txtPieces.Text, out _))
             {
-                MessageBox.Show("Pogrešan unos u polje 'Količina'! Neophodno uneti broj!");
+                MessageBox.Show("Pogrešan unos u polje 'Količina'! Neophodno uneti ceo broj!");
                 return;
             }
 
             Product p = new Product();
             p = (Product)cbProduct.SelectedItem;
+
+            currency = p.Currency;
 
             OrderItem orderItem = new OrderItem
             {
@@ -93,10 +98,12 @@ namespace Forme.UserControls
                 DataGridViewRow row = dgvItems.SelectedRows[0];
                 OrderItem orderItem = (OrderItem)row.DataBoundItem;
                 bindingItems.Remove(orderItem);
+
                 for (int i = 0; i < bindingItems.Count; i++)
                 {
                     bindingItems[i].Number = i + 1;
                 }
+
                 total -= orderItem.TotalWithoutVAT;
                 totalVAT -= orderItem.TotalWithVAT;
 
@@ -128,13 +135,13 @@ namespace Forme.UserControls
                     User = Controller.Instance.LoggedInUser,
                     OrderItems = bindingItems.ToList()
                 };
-               // Controller.Instance.SaveInvoice(invoice);
+                Controller.Instance.SaveOrder(order);
                 MessageBox.Show("Porudžbina je sačuvana!");
                 this.Visible = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Sistem ne može da zapamti porudžbinu!");
             }
         }
     }

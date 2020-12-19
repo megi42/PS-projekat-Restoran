@@ -11,6 +11,20 @@ namespace Storage.Implementation.SqlServer
     public class StorageProductSqlServer : IStorageProduct
     {
         private Broker broker = new Broker();
+
+        public void Delete(Product product)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.DeleteProduct(product);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
+
         public List<Product> GetAll()
         {
             try
@@ -29,7 +43,7 @@ namespace Storage.Implementation.SqlServer
             try
             {
                 broker.OpenConnection();
-                product.PriceWithVAT = Math.Round((product.PriceWithoutVAT + (product.PriceWithoutVAT * product.VAT) / 100),2);
+                product.PriceWithVAT = (product.PriceWithoutVAT + (product.PriceWithoutVAT * product.VAT) / 100);
                 broker.SaveProduct(product);
             }
             finally

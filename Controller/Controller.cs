@@ -14,6 +14,8 @@ namespace ControllerBL
         private IStorageUser storageUser;
         private IStorageProduct storageProduct;
         private IStorageTable storageTable;
+        private IStorageOrder storageOrder;
+        private IStorageInvoice storageInvoice;
         public User LoggedInUser { get; set; }
 
         private static Controller controller;
@@ -29,16 +31,13 @@ namespace ControllerBL
             }
         }
 
-        public List<Table> GetAllTables()
-        {
-            return storageTable.GetAll();
-        }
-
         private Controller()
         {
             storageProduct = new StorageProductSqlServer();
             storageUser = new StorageUserSqlServer();
             storageTable = new StorageTableSqlServer();
+            storageOrder = new StorageOrderSqlServer();
+            storageInvoice = new StorageInvoiceSqlServer();
         }
         public User Login(string username, string password)
         {
@@ -52,6 +51,22 @@ namespace ControllerBL
             }
             throw new Exception("Sistem ne može da prepozna korisnika!");
         }
+
+        public List<Order> GetAllOrders()
+        {
+            return storageOrder.GetAll();
+        }
+
+        public List<Invoice> GetAllInvoices()
+        {
+            return storageInvoice.GetAll();
+        }
+
+        public List<Table> GetAllTables()
+        {
+            return storageTable.GetAll();
+        }
+
         public List<Product> GetAllProducts()
         {
             return storageProduct.GetAll();
@@ -66,6 +81,31 @@ namespace ControllerBL
         public List<User> GetALLUsers()
         {
             return storageUser.GetAll();
+        }
+
+        public void SaveOrder(Order order)
+        {
+            storageOrder.Save(order);
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            storageProduct.Delete(product);
+        }
+
+        public List<OrderItem> GetOrderItems(Order order)
+        {
+            return storageOrder.GetOrderItems(order);
+        }
+
+        public void SaveChangesToOrder(Order order, int orderId)
+        {
+            storageOrder.SaveChanges(order, orderId);
+        }
+
+        public void SaveInvoice(Invoice invoice)
+        {
+            storageInvoice.Save(invoice);
         }
     }
 }

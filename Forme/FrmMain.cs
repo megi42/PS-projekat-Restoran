@@ -49,7 +49,22 @@ namespace Forme
 
         private void brisanjeProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCAllProducts());
+            SetUserControl(new UCRemoveProduct());
+        }
+
+        private void pretragaPorudžbineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUserControl(new UCAllOrders());
+        }
+
+        private void izmenaPorudžbineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUserControl(new UCChangeOrder());
+        }
+
+        private void kreiranjeRačunaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetUserControl(new UCInvoice());
         }
     }
 }

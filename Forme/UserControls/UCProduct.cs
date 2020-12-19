@@ -25,6 +25,9 @@ namespace Forme.UserControls
             cbType.DataSource = Enum.GetValues(typeof(ProductType));
             cbCurrency.DataSource = Enum.GetValues(typeof(Currency));
 
+            cbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCurrency.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cbType.SelectedIndex = -1;
             cbCurrency.SelectedIndex = -1;
 
@@ -49,8 +52,8 @@ namespace Forme.UserControls
             {
                 Product p = new Product();
                 p.Name = txtName.Text;
-                p.PriceWithoutVAT = Double.Parse(txtPrice.Text);
-                p.VAT = Double.Parse(txtVAT.Text);
+                p.PriceWithoutVAT = Math.Round(Double.Parse(txtPrice.Text));
+                p.VAT = Math.Round(Double.Parse(txtVAT.Text));
                 p.Currency = (Currency)cbCurrency.SelectedItem;
                 p.Type = (ProductType)cbType.SelectedItem;
                 Controller.Instance.SaveProduct(p);
