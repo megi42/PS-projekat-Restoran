@@ -1,0 +1,12 @@
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Domain\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Domain\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Domain\obj\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Domain\obj\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Domain\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Domain\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Domain\obj\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Domain\obj\Debug\Domain.pdb

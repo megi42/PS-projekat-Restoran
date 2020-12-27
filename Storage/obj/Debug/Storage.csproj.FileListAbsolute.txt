@@ -1,0 +1,22 @@
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\bin\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\bin\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\obj\Debug\Storage.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\obj\Debug\Storage.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\obj\Debug\Storage.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\obj\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Storage\obj\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\bin\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\bin\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\obj\Debug\Storage.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\obj\Debug\Storage.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\obj\Debug\Storage.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\obj\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Storage\obj\Debug\Storage.pdb

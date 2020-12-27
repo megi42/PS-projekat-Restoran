@@ -1,0 +1,50 @@
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Forme.exe.config
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Forme.exe
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Forme.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.FrmLogin.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.FrmMain.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.Properties.Resources.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.UserControls.UCProduct.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\View.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.exe
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.UserControls.UCOrder.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Controller.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Controller.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Forme\obj\Debug\Forme.UserControls.UCAllProducts.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Forme.exe.config
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Forme.exe
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Forme.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Controller.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Controller.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.FrmLogin.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.FrmMain.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.Properties.Resources.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCAllProducts.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCOrder.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCProduct.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\View.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.exe
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCRemoveProduct.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCAllOrders.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCChangeOrder.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCInvoice.resources

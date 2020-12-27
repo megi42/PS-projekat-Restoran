@@ -1,0 +1,26 @@
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\Controller.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\Controller.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\obj\Debug\Controller.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\obj\Debug\Controller.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\obj\Debug\Controller.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\Controller\obj\Debug\Controller.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\Controller.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\Controller.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\Storage.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\Storage.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\obj\Debug\Controller.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\obj\Debug\Controller.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\obj\Debug\Controller.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Controller\obj\Debug\Controller.pdb

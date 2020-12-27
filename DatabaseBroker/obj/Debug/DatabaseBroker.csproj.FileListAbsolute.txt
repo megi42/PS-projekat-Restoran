@@ -1,0 +1,18 @@
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\obj\Debug\DatabaseBroker.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\obj\Debug\DatabaseBroker.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\obj\Debug\DatabaseBroker.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\obj\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\restoran-master\DatabaseBroker\obj\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\bin\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\bin\Debug\DatabaseBroker.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\bin\Debug\Domain.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\bin\Debug\Domain.pdb
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\obj\Debug\DatabaseBroker.csprojAssemblyReference.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\obj\Debug\DatabaseBroker.csproj.CoreCompileInputs.cache
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\obj\Debug\DatabaseBroker.csproj.CopyComplete
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\obj\Debug\DatabaseBroker.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\DatabaseBroker\obj\Debug\DatabaseBroker.pdb
