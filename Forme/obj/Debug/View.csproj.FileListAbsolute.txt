@@ -48,3 +48,5 @@ C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\F
 C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCAllOrders.resources
 C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCChangeOrder.resources
 C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\obj\Debug\Forme.UserControls.UCInvoice.resources
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Common.dll
+C:\Users\Maxa\Desktop\IV god-I sem\PS\seminarski\Restoran\PS projekat-Restoran\Forme\bin\Debug\Common.pdb

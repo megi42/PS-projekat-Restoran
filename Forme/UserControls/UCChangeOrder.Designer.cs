@@ -476,7 +476,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "UCChangeOrder";
             this.Size = new System.Drawing.Size(1285, 666);
-            this.Load += new System.EventHandler(this.UCChangeOrder_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.groupBox2.ResumeLayout(false);

@@ -16,7 +16,8 @@ namespace Forme
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            MainCoordinator.Instance.OpenLoginForm();
+            Application.Run();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ControllerBL;
+using Forme.Controller;
 using Forme.UserControls;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,21 @@ namespace Forme
 {
     public partial class FrmMain : Form
     {
-        public FrmMain()
+        private readonly MainController mainController;
+
+        public FrmMain(MainController mainController)
         {
             InitializeComponent();
-            lblWelcome.Text = $"Dobro došli, {Controller.Instance.LoggedInUser.FirstName} {Controller.Instance.LoggedInUser.LastName}!";
+            this.mainController = mainController;
+            lblWelcome.Text = $"Dobro došli, {MainCoordinator.Instance.User.FirstName} {MainCoordinator.Instance.User.LastName}!";
         }
 
         private void unesiProizvodToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCProduct());
+            mainController.OpenUCProduct(this);
         }
 
-        private void SetUserControl(UserControl ucUser)
+        public void SetUserControl(UserControl ucUser)
         {
             pnlMainContainer.Controls.Clear();
             ucUser.Parent = pnlMainContainer;
@@ -34,7 +38,7 @@ namespace Forme
 
         private void unesiPorudzbenicuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCOrder());
+            mainController.OpenUCOrder(this);
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -44,27 +48,27 @@ namespace Forme
 
         private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCAllProducts());
+            mainController.OpenUCAllProducts(this);
         }
 
         private void brisanjeProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCRemoveProduct());
+            mainController.OpenUCRemoveProduct(this);
         }
 
         private void pretragaPorudžbineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCAllOrders());
+            mainController.OpenUCAllOrders(this);
         }
 
         private void izmenaPorudžbineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCChangeOrder());
+            mainController.OpenUCChangeOrder(this);
         }
 
         private void kreiranjeRačunaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUserControl(new UCInvoice());
+            mainController.OpenUCInvoice(this);
         }
     }
 }

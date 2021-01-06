@@ -39,11 +39,11 @@ namespace ControllerBL
             storageOrder = new StorageOrderSqlServer();
             storageInvoice = new StorageInvoiceSqlServer();
         }
-        public User Login(string username, string password)
+        public User Login(User user)
         {
             foreach (User u in storageUser.GetAll())
             {
-                if (u.Username == username && u.Password == password)
+                if (u.Username == user.Username && u.Password == user.Password)
                 {
                     LoggedInUser = u;
                     return u;

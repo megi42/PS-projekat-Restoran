@@ -48,6 +48,7 @@
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceItem.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderChanges.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentType.cs" />

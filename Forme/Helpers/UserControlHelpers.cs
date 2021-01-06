@@ -100,14 +100,14 @@ namespace Forme.Helpers
 
         public static bool IsOrderPayed(Order order)
         {
-            List<Order> orders = Controller.Instance.GetAllOrders();
-            List<Invoice> invoices = Controller.Instance.GetAllInvoices();
+            List<Order> orders = Communication.Communication.Instance.GetAllOrders();
+            List<Invoice> invoices = Communication.Communication.Instance.GetAllInvoices();
 
             List<Order> ordersNoInvoice = OrdersNoInvoice(orders, invoices);
 
-            foreach(Order o in ordersNoInvoice)
+            foreach (Order o in ordersNoInvoice)
             {
-                if(o.OrderId == order.OrderId)
+                if (o.OrderId == order.OrderId)
                 {
                     return false;
                 }

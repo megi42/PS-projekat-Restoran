@@ -579,7 +579,6 @@
             this.Controls.Add(this.label1);
             this.Name = "UCInvoice";
             this.Size = new System.Drawing.Size(1271, 670);
-            this.Load += new System.EventHandler(this.UCInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.Porudžbine.ResumeLayout(false);

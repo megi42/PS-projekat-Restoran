@@ -10,60 +10,35 @@ using System.Windows.Forms;
 using Domain;
 using Forme.Helpers;
 using ControllerBL;
+using Forme.Controller;
 
 namespace Forme.UserControls
 {
     public partial class UCProduct : UserControl
     {
-        public UCProduct()
+        private ProductController productController;
+
+        public ComboBox CbType { get => cbType; }
+        public ComboBox CbCurrency { get => cbCurrency; }
+        public TextBox TxtName { get => txtName; }
+        public TextBox TxtPrice { get => txtPrice; }
+        public TextBox TxtVAT { get => txtVAT; }
+
+
+    public UCProduct(ProductController productController)
         {
             InitializeComponent();
+            this.productController = productController;
         }
 
         private void UCProduct_Load(object sender, EventArgs e)
         {
-            cbType.DataSource = Enum.GetValues(typeof(ProductType));
-            cbCurrency.DataSource = Enum.GetValues(typeof(Currency));
-
-            cbType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbCurrency.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            cbType.SelectedIndex = -1;
-            cbCurrency.SelectedIndex = -1;
-
-            cbType.Text = "Izaberite tip proizvoda";
-            cbCurrency.Text = "Izaberite valutu";
+            productController.InitUCProduct(this);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!UserControlHelpers.EmptyFieldValidation(txtName) | !UserControlHelpers.EmptyFieldValidation(txtPrice) | !UserControlHelpers.EmptyFieldValidation(txtVAT) | !UserControlHelpers.EmptyFieldValidationCB(cbType) | !UserControlHelpers.EmptyFieldValidationCB(cbCurrency))
-            {
-                MessageBox.Show("Sva polja su obavezna!");
-                return;
-            }
-            if(!UserControlHelpers.CheckDoubleType(txtPrice) | !UserControlHelpers.CheckDoubleType(txtVAT))
-            {
-                MessageBox.Show("Pogrešan unos!");
-                return;
-            }
-
-            try
-            {
-                Product p = new Product();
-                p.Name = txtName.Text;
-                p.PriceWithoutVAT = Math.Round(Double.Parse(txtPrice.Text));
-                p.VAT = Math.Round(Double.Parse(txtVAT.Text));
-                p.Currency = (Currency)cbCurrency.SelectedItem;
-                p.Type = (ProductType)cbType.SelectedItem;
-                Controller.Instance.SaveProduct(p);
-                MessageBox.Show("Proizvod je sačuvan");
-                this.Visible = false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Sistem ne može da sačuva proizvod!");
-            }
+            productController.Save(this);
         }
     }
 }

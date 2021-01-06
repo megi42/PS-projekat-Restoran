@@ -11,89 +11,43 @@ using Domain;
 using ControllerBL;
 using System.Globalization;
 using Forme.Helpers;
+using Forme.Controller;
 
 namespace Forme.UserControls
 {
     public partial class UCAllOrders : UserControl
     {
-        List<Order> orders;
 
-        public UCAllOrders()
+        OrderController orderController;
+
+        public UCAllOrders(OrderController orderController)
         {
             InitializeComponent();
+            this.orderController = orderController;
+            orderController.InitUCAllOrders(this);
         }
 
-        private void UCAllOrders_Load(object sender, EventArgs e)
-        {
-            orders = Controller.Instance.GetAllOrders();
-            dgvOrders.DataSource = orders;
-            dgvOrders.Columns["OrderId"].Visible = false;
-            dgvOrders.Columns["DateTime"].HeaderText = "Datum";
-            dgvOrders.Columns["Table"].HeaderText = "Sto";
-            dgvOrders.Columns["TotalWithoutVAT"].HeaderText = "Cena";
-            dgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
-            dgvOrders.Columns["Currency"].HeaderText = "Valuta";
-            dgvOrders.Columns["User"].HeaderText = "Radnik";
-
-            cbTable.DataSource = Controller.Instance.GetAllTables();
-            cbTable.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTable.SelectedIndex = -1;
-            cbUser.DataSource = Controller.Instance.GetALLUsers();
-            cbUser.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbUser.SelectedIndex = -1;
-        }
+        public DataGridView DgvOrders { get => dgvOrders; }
+        public DataGridView DgvItems { get => dgvItems; }
+        public ComboBox CbTable { get => cbTable; }
+        public ComboBox CbUser { get => cbUser; }
+        public TextBox TxtDateFrom { get => txtDateFrom; }
+        public TextBox TxtDateTo { get => txtDateTo; }
+        public Label LblPayed { get => lblPayed; }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            UserControlHelpers.SearchOrders(cbTable, cbUser, txtDateFrom, txtDateTo, dgvOrders, orders);
+            orderController.Search(this);
         }
 
         private void btnNoFilter_Click(object sender, EventArgs e)
         {
-            dgvOrders.DataSource = orders;
-            cbTable.SelectedIndex = -1;
-            cbUser.SelectedIndex = -1;
-            txtDateFrom.Text = string.Empty;
-            txtDateTo.Text = string.Empty;
-            dgvItems.DataSource = null;
-            lblPayed.Text = "Status plaćanja";
+            orderController.RemoveFilters(this);
         }
-
-        List<OrderItem> orderItems;
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.SelectedRows.Count > 0)
-            {
-                DataGridViewRow row = dgvOrders.SelectedRows[0];
-                Order order = (Order)row.DataBoundItem;
-
-                if (UserControlHelpers.IsOrderPayed(order))
-                {
-                    lblPayed.Text = "Plaćeno";
-                }
-                else
-                {
-                    lblPayed.Text = "Nije plaćeno";
-                }
-
-                orderItems = Controller.Instance.GetOrderItems(order);
-                dgvItems.DataSource = orderItems;
-
-                dgvItems.Columns["OrderId"].Visible = false;
-                dgvItems.Columns["Number"].HeaderText = "RB";
-                dgvItems.Columns["Product"].HeaderText = "Proizvod";
-                dgvItems.Columns["Pieces"].HeaderText = "Komada";
-                dgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
-                dgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
-                dgvItems.Columns["Currency"].HeaderText = "Valuta";
-                dgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
-                dgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
-            }
-            else
-            {
-                MessageBox.Show("Nije odabrana porudžbina za izmenu!");
-            }
+            orderController.Show(this);
         }
     }
 }

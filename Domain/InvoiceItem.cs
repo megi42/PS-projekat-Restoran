@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
+    [Serializable]
     public class InvoiceItem
     {
         public int InvoiceId { get; set; }

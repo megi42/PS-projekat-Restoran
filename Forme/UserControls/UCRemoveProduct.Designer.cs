@@ -121,7 +121,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "UCRemoveProduct";
             this.Size = new System.Drawing.Size(892, 628);
-            this.Load += new System.EventHandler(this.UCRemoveProduct_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);

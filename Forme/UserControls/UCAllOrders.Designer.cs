@@ -267,7 +267,6 @@
             this.Controls.Add(this.Porudžbine);
             this.Name = "UCAllOrders";
             this.Size = new System.Drawing.Size(1269, 655);
-            this.Load += new System.EventHandler(this.UCAllOrders_Load);
             this.Porudžbine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.groupBox2.ResumeLayout(false);

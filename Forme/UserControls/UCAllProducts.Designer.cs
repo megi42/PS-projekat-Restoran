@@ -108,7 +108,6 @@
             this.Controls.Add(this.label1);
             this.Name = "UCAllProducts";
             this.Size = new System.Drawing.Size(1073, 636);
-            this.Load += new System.EventHandler(this.UCAllProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

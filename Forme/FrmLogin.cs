@@ -1,5 +1,6 @@
 ﻿using ControllerBL;
 using Domain;
+using Forme.Controller;
 using Forme.Helpers;
 using System;
 using System.Collections.Generic;
@@ -15,31 +16,32 @@ namespace Forme
 {
     public partial class FrmLogin : Form
     {
+        private LoginController loginController;
+
         public FrmLogin()
         {
             InitializeComponent();
         }
 
+        public FrmLogin(LoginController loginController)
+        {
+            this.loginController = loginController;
+            InitializeComponent();
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!UserControlHelpers.EmptyFieldValidation(txtUsername) | !UserControlHelpers.EmptyFieldValidation(txtPassword))
-            {
-                MessageBox.Show("Sva polja su obavezna!");
-                return;
-            }
-            try
-            {
-                User u = Controller.Instance.Login(txtUsername.Text, txtPassword.Text);
-                MessageBox.Show($"Korisnik {u.FirstName} {u.LastName} se uspešno prijavio!");
-                FrmMain frmMain = new FrmMain();
-                this.Visible = false;
-                frmMain.ShowDialog();
-                this.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            loginController.Login(txtUsername, txtPassword, this);
+        }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            loginController.Connect();
         }
     }
 }
