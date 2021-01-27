@@ -35,7 +35,7 @@ namespace Forme.Communication
         {
             if (socket != null && !socket.Connected)
             {
-                socket.Connect("192.168.1.2", 9999);
+                socket.Connect("192.168.1.7", 9999);
                 client = new CommunicationClient(socket);
             }
         }
@@ -93,6 +93,13 @@ namespace Forme.Communication
             client.GetResponseResult();
         }
 
+        internal List<Product> SearchProducts(Product product)
+        {
+            Request request = new Request() { Operation = Operation.SearchProducts, RequestObject = product };
+            client.SendRequest(request);
+            return (List<Product>)client.GetResponseResult();
+        }
+
         internal List<Invoice> GetAllInvoices()
         {
             Request request = new Request() { Operation = Operation.GetAllInvoices };
@@ -100,9 +107,9 @@ namespace Forme.Communication
             return (List<Invoice>)client.GetResponseResult();
         }
 
-        internal List<OrderItem> GetOrderItems(Order order)
+        internal List<OrderItem> GetOrderItems(OrderItem orderItem)
         {
-            Request request = new Request() { Operation = Operation.GetOrderItems, RequestObject = order };
+            Request request = new Request() { Operation = Operation.GetOrderItems, RequestObject = orderItem };
             client.SendRequest(request);
             return (List<OrderItem>)client.GetResponseResult();
         }
@@ -114,16 +121,23 @@ namespace Forme.Communication
             client.GetResponseResult();
         }
 
-        internal void SaveChangesToOrder(OrderChanges orderChanges)
+        internal void SaveInvoice(Invoice invoice)
         {
-            Request request = new Request() { Operation = Operation.SaveChangesToOrder, RequestObject = orderChanges };
+            Request request = new Request() { Operation = Operation.SaveInvoice, RequestObject = invoice };
             client.SendRequest(request);
             client.GetResponseResult();
         }
 
-        internal void SaveInvoice(Invoice invoice)
+        internal List<Order> SearchOrders(Order order)
         {
-            Request request = new Request() { Operation = Operation.SaveInvoice, RequestObject = invoice };
+            Request request = new Request() { Operation = Operation.SearchOrders, RequestObject = order };
+            client.SendRequest(request);
+            return (List<Order>)client.GetResponseResult();
+        }
+
+        internal void UpdateOrder(Order order)
+        {
+            Request request = new Request() { Operation = Operation.SaveChangesToOrder, RequestObject = order };
             client.SendRequest(request);
             client.GetResponseResult();
         }

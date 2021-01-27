@@ -8,6 +8,6 @@ namespace Domain
 {
     public enum Currency
     {
-        RSD = 1,
+        RSD = 1
     }
 }

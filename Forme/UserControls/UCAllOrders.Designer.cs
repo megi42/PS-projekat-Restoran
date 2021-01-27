@@ -44,8 +44,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.btnShow = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblPayed = new System.Windows.Forms.Label();
             this.Porudžbine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -193,7 +191,7 @@
             this.groupBox2.Controls.Add(this.dgvItems);
             this.groupBox2.Location = new System.Drawing.Point(15, 391);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1230, 219);
+            this.groupBox2.Size = new System.Drawing.Size(1230, 261);
             this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Stavke porudžbine:";
@@ -212,7 +210,7 @@
             this.dgvItems.RowHeadersWidth = 62;
             this.dgvItems.RowTemplate.Height = 28;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItems.Size = new System.Drawing.Size(1218, 193);
+            this.dgvItems.Size = new System.Drawing.Size(1218, 235);
             this.dgvItems.TabIndex = 0;
             // 
             // btnShow
@@ -226,31 +224,11 @@
             this.btnShow.UseVisualStyleBackColor = true;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 623);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 20);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "Status porudžbine:";
-            // 
-            // lblPayed
-            // 
-            this.lblPayed.AutoSize = true;
-            this.lblPayed.Location = new System.Drawing.Point(176, 623);
-            this.lblPayed.Name = "lblPayed";
-            this.lblPayed.Size = new System.Drawing.Size(119, 20);
-            this.lblPayed.TabIndex = 45;
-            this.lblPayed.Text = "Status plaćanja";
-            // 
             // UCAllOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Controls.Add(this.lblPayed);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnNoFilter);
@@ -294,7 +272,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Button btnShow;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblPayed;
     }
 }

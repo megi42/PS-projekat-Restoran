@@ -57,40 +57,18 @@ namespace Forme.Controller
 
         internal void Search(UCAllProducts uCAllProducts)
         {
-            products = new BindingList<Product>(Communication.Communication.Instance.GetAllProducts());
-            BindingList<Product> newBindingProducts = new BindingList<Product>();
-
-            string searchText = uCAllProducts.TxtSearch.Text;
-            string searchTextToLower = searchText.ToLower();
-
-            foreach (Product p in products)
-            {
-                string pNameToLower = p.Name.ToLower();
-                if (pNameToLower.Contains(searchTextToLower))
-                {
-                    newBindingProducts.Add(p);
-                }
-            }
-            uCAllProducts.DgvProducts.DataSource = newBindingProducts;
+            string text = uCAllProducts.TxtSearch.Text;
+            Product product = new Product { Name = text };
+            List<Product> products = Communication.Communication.Instance.SearchProducts(product);
+            uCAllProducts.DgvProducts.DataSource = products;
         }
 
         internal void Search_1(UCRemoveProduct uCRemoveProduct)
         {
-            products = new BindingList<Product>(Communication.Communication.Instance.GetAllProducts());
-            BindingList<Product> newBindingProducts = new BindingList<Product>();
-
-            string searchText = uCRemoveProduct.TxtSearch.Text;
-            string searchTextToLower = searchText.ToLower();
-
-            foreach (Product p in products)
-            {
-                string pNameToLower = p.Name.ToLower();
-                if (pNameToLower.Contains(searchTextToLower))
-                {
-                    newBindingProducts.Add(p);
-                }
-            }
-            uCRemoveProduct.DgvProducts.DataSource = newBindingProducts;
+            string text = uCRemoveProduct.TxtSearch.Text;
+            Product product = new Product { Name = text };
+            List<Product> products = Communication.Communication.Instance.SearchProducts(product);
+            uCRemoveProduct.DgvProducts.DataSource = products;
         }
 
         internal void Save(UCProduct ucProduct)

@@ -45,10 +45,10 @@
     <Compile Include="Card.cs" />
     <Compile Include="CardType.cs" />
     <Compile Include="Currency.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceItem.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="OrderChanges.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentType.cs" />

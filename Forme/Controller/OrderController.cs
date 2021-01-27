@@ -4,6 +4,7 @@ using Forme.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,6 @@ namespace Forme.Controller
     {
         BindingList<Order> orders = new BindingList<Order>();
         BindingList<OrderItem> bindingItems = new BindingList<OrderItem>();
-        BindingList<Order> ordersNoInvoice = new BindingList<Order>();
         BindingList<OrderItem> orderItems = new BindingList<OrderItem>();
 
         internal void InitUCOrder(UCOrder uCOrder)
@@ -54,6 +54,9 @@ namespace Forme.Controller
             uCAllOrders.DgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
             uCAllOrders.DgvOrders.Columns["Currency"].HeaderText = "Valuta";
             uCAllOrders.DgvOrders.Columns["User"].HeaderText = "Radnik";
+            uCAllOrders.DgvOrders.Columns["State"].HeaderText = "Status";
+            uCAllOrders.DgvOrders.Columns["DateFrom"].Visible = false;
+            uCAllOrders.DgvOrders.Columns["DateTo"].Visible = false;
 
             uCAllOrders.CbTable.DataSource = Communication.Communication.Instance.GetAllTables();
             uCAllOrders.CbTable.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -65,7 +68,8 @@ namespace Forme.Controller
 
         internal void InitUCChangeOrder(UCChangeOrder uCChangeOrder)
         {
-            ordersNoInvoice = new BindingList<Order>(UserControlHelpers.OrdersNoInvoice(Communication.Communication.Instance.GetAllOrders(), Communication.Communication.Instance.GetAllInvoices()));
+            List<Order> ordersNoInvoice = Communication.Communication.Instance.GetAllOrders();
+
             uCChangeOrder.DgvOrders.DataSource = ordersNoInvoice;
 
             uCChangeOrder.DgvOrders.Columns["OrderId"].Visible = false;
@@ -75,6 +79,9 @@ namespace Forme.Controller
             uCChangeOrder.DgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
             uCChangeOrder.DgvOrders.Columns["Currency"].HeaderText = "Valuta";
             uCChangeOrder.DgvOrders.Columns["User"].HeaderText = "Radnik";
+            uCChangeOrder.DgvOrders.Columns["State"].HeaderText = "Status";
+            uCChangeOrder.DgvOrders.Columns["DateFrom"].Visible = false;
+            uCChangeOrder.DgvOrders.Columns["DateTo"].Visible = false;
 
             uCChangeOrder.CbTable.DataSource = Communication.Communication.Instance.GetAllTables();
             uCChangeOrder.CbTable.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -86,8 +93,9 @@ namespace Forme.Controller
 
         internal void InitUCInvoice(UCInvoice uCInvoice)
         {
-            ordersNoInvoice = new BindingList<Order>(UserControlHelpers.OrdersNoInvoice(Communication.Communication.Instance.GetAllOrders(), Communication.Communication.Instance.GetAllInvoices()));
-            uCInvoice.DgvOrders.DataSource = ordersNoInvoice;
+            List<Order> orders = Communication.Communication.Instance.GetAllOrders();
+            
+            uCInvoice.DgvOrders.DataSource = orders;
 
             uCInvoice.DgvOrders.Columns["OrderId"].Visible = false;
             uCInvoice.DgvOrders.Columns["DateTime"].HeaderText = "Datum";
@@ -96,6 +104,9 @@ namespace Forme.Controller
             uCInvoice.DgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
             uCInvoice.DgvOrders.Columns["Currency"].HeaderText = "Valuta";
             uCInvoice.DgvOrders.Columns["User"].HeaderText = "Radnik";
+            uCInvoice.DgvOrders.Columns["State"].HeaderText = "Status";
+            uCInvoice.DgvOrders.Columns["DateFrom"].Visible = false;
+            uCInvoice.DgvOrders.Columns["DateTo"].Visible = false;
 
             uCInvoice.CbTable.DataSource = Communication.Communication.Instance.GetAllTables();
             uCInvoice.CbTable.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -107,19 +118,57 @@ namespace Forme.Controller
 
         internal void RemoveFilters(UCAllOrders uCAllOrders)
         {
+            List<Order> orders = Communication.Communication.Instance.GetAllOrders();
+            uCAllOrders.DgvOrders.DataSource = null;
             uCAllOrders.DgvOrders.DataSource = orders;
+
+            uCAllOrders.DgvOrders.Columns["OrderId"].Visible = false;
+            uCAllOrders.DgvOrders.Columns["DateTime"].HeaderText = "Datum";
+            uCAllOrders.DgvOrders.Columns["Table"].HeaderText = "Sto";
+            uCAllOrders.DgvOrders.Columns["TotalWithoutVAT"].HeaderText = "Cena";
+            uCAllOrders.DgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
+            uCAllOrders.DgvOrders.Columns["Currency"].HeaderText = "Valuta";
+            uCAllOrders.DgvOrders.Columns["User"].HeaderText = "Radnik";
+            uCAllOrders.DgvOrders.Columns["State"].HeaderText = "Status";
+            uCAllOrders.DgvOrders.Columns["DateFrom"].Visible = false;
+            uCAllOrders.DgvOrders.Columns["DateTo"].Visible = false;
+
             uCAllOrders.CbTable.SelectedIndex = -1;
             uCAllOrders.CbUser.SelectedIndex = -1;
             uCAllOrders.TxtDateFrom.Text = string.Empty;
             uCAllOrders.TxtDateTo.Text = string.Empty;
             uCAllOrders.DgvItems.DataSource = null;
-            uCAllOrders.LblPayed.Text = "Status plaćanja";
         }
 
         internal void Search(UCAllOrders uCAllOrders)
         {
-            List<Order> orders = Communication.Communication.Instance.GetAllOrders();
-            UserControlHelpers.SearchOrders(uCAllOrders.CbTable, uCAllOrders.CbUser, uCAllOrders.TxtDateFrom, uCAllOrders.TxtDateTo, uCAllOrders.DgvOrders, orders);
+            if (uCAllOrders.CbTable.SelectedIndex == -1 || uCAllOrders.CbUser.SelectedIndex == -1 || string.IsNullOrEmpty(uCAllOrders.TxtDateFrom.Text) || string.IsNullOrEmpty(uCAllOrders.TxtDateTo.Text))
+            {
+                MessageBox.Show("Ukoliko želite da pretražite porudžbine, morate popuniti sva polja za pretragu");
+                return;
+            }
+
+            if (!DateTime.TryParseExact(uCAllOrders.TxtDateFrom.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            {
+                MessageBox.Show("'Datum od', koji je unet, nije u odgovarajućem formatu! Datume unesite u formatu:dd.MM.yyyy.!");
+                return;
+            }
+
+
+            if (!DateTime.TryParseExact(uCAllOrders.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            {
+                MessageBox.Show("'Datum do', koji je unet, nije u odgovarajućem formatu! Datume unesite u formatu:dd.MM.yyyy.!");
+                return;
+            }
+
+
+            Order order = new Order();
+            order.Table = (Table)uCAllOrders.CbTable.SelectedItem;
+            order.User = (User)uCAllOrders.CbUser.SelectedItem;
+            order.DateFrom = DateTime.ParseExact(uCAllOrders.TxtDateFrom.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
+            order.DateTo = DateTime.ParseExact(uCAllOrders.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
+            List<Order> orders = Communication.Communication.Instance.SearchOrders(order);
+            uCAllOrders.DgvOrders.DataSource = orders;
         }
 
         internal void Show(UCAllOrders uCAllOrders)
@@ -128,17 +177,10 @@ namespace Forme.Controller
             {
                 DataGridViewRow row = uCAllOrders.DgvOrders.SelectedRows[0];
                 Order order = (Order)row.DataBoundItem;
+                OrderItem orderItem = new OrderItem();
+                orderItem.OrderId = order.OrderId;
 
-                if (UserControlHelpers.IsOrderPayed(order))
-                {
-                    uCAllOrders.LblPayed.Text = "Plaćeno";
-                }
-                else
-                {
-                    uCAllOrders.LblPayed.Text = "Nije plaćeno";
-                }
-
-                List<OrderItem> orderItems = Communication.Communication.Instance.GetOrderItems(order);
+                List<OrderItem> orderItems = Communication.Communication.Instance.GetOrderItems(orderItem);
                 uCAllOrders.DgvItems.DataSource = orderItems;
 
                 uCAllOrders.DgvItems.Columns["OrderId"].Visible = false;
@@ -248,6 +290,7 @@ namespace Forme.Controller
                     TotalWithoutVAT = double.Parse(uCOrder.TxtTotal.Text),
                     TotalWithVAT = double.Parse(uCOrder.TxtTotalVAT.Text),
                     Currency = currency,
+                    State = "Nije placeno",
                     User = MainCoordinator.Instance.User,
                     OrderItems = bindingItems.ToList()
                 };
@@ -263,17 +306,57 @@ namespace Forme.Controller
 
         internal void SearchOrder(UCChangeOrder uCChangeOrder)
         {
-            UserControlHelpers.SearchOrders(uCChangeOrder.CbTable, uCChangeOrder.CbUser, uCChangeOrder.TxtDateFrom, uCChangeOrder.TxtDateTo, uCChangeOrder.DgvOrders, ordersNoInvoice.ToList());
+            if (uCChangeOrder.CbTable.SelectedIndex == -1 || uCChangeOrder.CbUser.SelectedIndex == -1 || string.IsNullOrEmpty(uCChangeOrder.TxtDateFrom.Text) || string.IsNullOrEmpty(uCChangeOrder.TxtDateTo.Text))
+            {
+                MessageBox.Show("Ukoliko želite da pretražite porudžbine, morate popuniti sva polja za pretragu");
+                return;
+            }
+
+            if (!DateTime.TryParseExact(uCChangeOrder.TxtDateFrom.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            {
+                MessageBox.Show("'Datum od', koji je unet, nije u odgovarajućem formatu! Datume unesite u formatu:dd.MM.yyyy.!");
+                return;
+            }
+
+
+            if (!DateTime.TryParseExact(uCChangeOrder.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            {
+                MessageBox.Show("'Datum do', koji je unet, nije u odgovarajućem formatu! Datume unesite u formatu:dd.MM.yyyy.!");
+                return;
+            }
+
+
+            Order order = new Order();
+            order.Table = (Table)uCChangeOrder.CbTable.SelectedItem;
+            order.User = (User)uCChangeOrder.CbUser.SelectedItem;
+            order.DateFrom = DateTime.ParseExact(uCChangeOrder.TxtDateFrom.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
+            order.DateTo = DateTime.ParseExact(uCChangeOrder.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
+            List<Order> orders = Communication.Communication.Instance.SearchOrders(order);
+            uCChangeOrder.DgvOrders.DataSource = orders;
         }
 
         internal void RemoveFilters_1(UCChangeOrder uCChangeOrder)
         {
+            List<Order> orders = Communication.Communication.Instance.GetAllOrders();
             uCChangeOrder.DgvOrders.DataSource = null;
-            uCChangeOrder.DgvOrders.DataSource = ordersNoInvoice;
+            uCChangeOrder.DgvOrders.DataSource = orders;
+
+            uCChangeOrder.DgvOrders.Columns["OrderId"].Visible = false;
+            uCChangeOrder.DgvOrders.Columns["DateTime"].HeaderText = "Datum";
+            uCChangeOrder.DgvOrders.Columns["Table"].HeaderText = "Sto";
+            uCChangeOrder.DgvOrders.Columns["TotalWithoutVAT"].HeaderText = "Cena";
+            uCChangeOrder.DgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
+            uCChangeOrder.DgvOrders.Columns["Currency"].HeaderText = "Valuta";
+            uCChangeOrder.DgvOrders.Columns["User"].HeaderText = "Radnik";
+            uCChangeOrder.DgvOrders.Columns["State"].HeaderText = "Status";
+            uCChangeOrder.DgvOrders.Columns["DateFrom"].Visible = false;
+            uCChangeOrder.DgvOrders.Columns["DateTo"].Visible = false;
+
             uCChangeOrder.CbTable.SelectedIndex = -1;
             uCChangeOrder.CbUser.SelectedIndex = -1;
             uCChangeOrder.TxtDateFrom.Text = string.Empty;
             uCChangeOrder.TxtDateTo.Text = string.Empty;
+            uCChangeOrder.DgvItems.DataSource = null;
         }
 
         int orderId;
@@ -285,11 +368,22 @@ namespace Forme.Controller
             {
                 DataGridViewRow row = uCChangeOrder.DgvOrders.SelectedRows[0];
                 Order order = (Order)row.DataBoundItem;
+
+                if(order.State == "Placeno")
+                {
+                    MessageBox.Show("Porudžbina je plaćena. Nije moguće izmeniti je!");
+                    return;
+                }
+
                 orderId = order.OrderId;
                 table = order.Table;
                 currency = order.Currency;
 
-                orderItems = new BindingList<OrderItem>(Communication.Communication.Instance.GetOrderItems(order));
+                OrderItem orderItem = new OrderItem();
+                orderItem.OrderId = orderId;
+
+                List<OrderItem> orderItemsList = Communication.Communication.Instance.GetOrderItems(orderItem);
+                orderItems = new BindingList<OrderItem>(orderItemsList);
                 uCChangeOrder.DgvItems.DataSource = orderItems;
 
                 uCChangeOrder.DgvItems.Columns["OrderId"].Visible = false;
@@ -377,7 +471,7 @@ namespace Forme.Controller
             uCChangeOrder.TxtDate.Text = string.Empty;
             uCChangeOrder.CbTableI.Text = string.Empty;
 
-            uCChangeOrder.DgvItems.DataSource = new List<OrderItem>();
+            uCChangeOrder.DgvItems.DataSource = null;
 
             uCChangeOrder.CbProduct.Enabled = false;
             uCChangeOrder.TxtPieces.Enabled = false;
@@ -425,22 +519,18 @@ namespace Forme.Controller
             {
                 Order order = new Order
                 {
+                    OrderId = orderId,
                     DateTime = dateTime,
                     Table = t,
                     TotalWithoutVAT = totalWithoutVAT,
                     TotalWithVAT = totalWithVAT,
                     Currency = c,
                     User = user,
+                    State = "Nije placeno",
                     OrderItems = items
                 };
 
-                OrderChanges orderChanges = new OrderChanges
-                {
-                    Order = order,
-                    Id = orderId
-                };
-
-                Communication.Communication.Instance.SaveChangesToOrder(orderChanges); 
+                Communication.Communication.Instance.UpdateOrder(order);
                 MessageBox.Show("Izmene su sačuvane!");
                 uCChangeOrder.Visible = false;
 
@@ -453,13 +543,52 @@ namespace Forme.Controller
 
         internal void SearchOrder_1(UCInvoice uCInvoice)
         {
-            UserControlHelpers.SearchOrders(uCInvoice.CbTable, uCInvoice.CbUser, uCInvoice.TxtDateFrom, uCInvoice.TxtDateTo, uCInvoice.DgvOrders, ordersNoInvoice.ToList());
+            if (uCInvoice.CbTable.SelectedIndex == -1 || uCInvoice.CbUser.SelectedIndex == -1 || string.IsNullOrEmpty(uCInvoice.TxtDateFrom.Text) || string.IsNullOrEmpty(uCInvoice.TxtDateTo.Text))
+            {
+                MessageBox.Show("Ukoliko želite da pretražite porudžbine, morate popuniti sva polja za pretragu");
+                return;
+            }
+
+            if (!DateTime.TryParseExact(uCInvoice.TxtDateFrom.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            {
+                MessageBox.Show("'Datum od', koji je unet, nije u odgovarajućem formatu! Datume unesite u formatu:dd.MM.yyyy.!");
+                return;
+            }
+
+
+            if (!DateTime.TryParseExact(uCInvoice.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            {
+                MessageBox.Show("'Datum do', koji je unet, nije u odgovarajućem formatu! Datume unesite u formatu:dd.MM.yyyy.!");
+                return;
+            }
+
+
+            Order order = new Order();
+            order.Table = (Table)uCInvoice.CbTable.SelectedItem;
+            order.User = (User)uCInvoice.CbUser.SelectedItem;
+            order.DateFrom = DateTime.ParseExact(uCInvoice.TxtDateFrom.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
+            order.DateTo = DateTime.ParseExact(uCInvoice.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
+            List<Order> orders = Communication.Communication.Instance.SearchOrders(order);
+            uCInvoice.DgvOrders.DataSource = orders;
         }
 
         internal void RemoveFilters_3(UCInvoice uCInvoice)
         {
+            List<Order> orders = Communication.Communication.Instance.GetAllOrders();
             uCInvoice.DgvOrders.DataSource = null;
-            uCInvoice.DgvOrders.DataSource = ordersNoInvoice;
+            uCInvoice.DgvOrders.DataSource = orders;
+
+            uCInvoice.DgvOrders.Columns["OrderId"].Visible = false;
+            uCInvoice.DgvOrders.Columns["DateTime"].HeaderText = "Datum";
+            uCInvoice.DgvOrders.Columns["Table"].HeaderText = "Sto";
+            uCInvoice.DgvOrders.Columns["TotalWithoutVAT"].HeaderText = "Cena";
+            uCInvoice.DgvOrders.Columns["TotalWithVAT"].HeaderText = "Cena(PDV)";
+            uCInvoice.DgvOrders.Columns["Currency"].HeaderText = "Valuta";
+            uCInvoice.DgvOrders.Columns["User"].HeaderText = "Radnik";
+            uCInvoice.DgvOrders.Columns["State"].HeaderText = "Status";
+            uCInvoice.DgvOrders.Columns["DateFrom"].Visible = false;
+            uCInvoice.DgvOrders.Columns["DateTo"].Visible = false;
+
             uCInvoice.CbTable.SelectedIndex = -1;
             uCInvoice.CbUser.SelectedIndex = -1;
             uCInvoice.TxtDateFrom.Text = string.Empty;
@@ -477,6 +606,12 @@ namespace Forme.Controller
 
                 DataGridViewRow row = uCInvoice.DgvOrders.SelectedRows[0];
                 order = (Order)row.DataBoundItem;
+
+                if (order.State == "Placeno")
+                {
+                    MessageBox.Show("Za ovu porudžbinu je već kreiran račun!");
+                    return;
+                }
 
                 currency = order.Currency;
 
@@ -502,7 +637,11 @@ namespace Forme.Controller
                 uCInvoice.CbPayment.DropDownStyle = ComboBoxStyle.DropDownList;
                 uCInvoice.CbPayment.SelectedIndex = -1;
 
-                orderItems = new BindingList<OrderItem>(Communication.Communication.Instance.GetOrderItems(order));
+                OrderItem orderItem = new OrderItem();
+                orderItem.OrderId = order.OrderId;
+
+                orderItems = new BindingList<OrderItem>(Communication.Communication.Instance.GetOrderItems(orderItem));
+                order.OrderItems = orderItems.ToList();
 
                 foreach (OrderItem oi in orderItems)
                 {
@@ -770,6 +909,10 @@ namespace Forme.Controller
                 };
 
                 Communication.Communication.Instance.SaveInvoice(invoice);
+
+                order.State = "Placeno";
+                Communication.Communication.Instance.UpdateOrder(order);
+
                 MessageBox.Show("Račun je sačuvan!");
                 uCInvoice.Visible = false;
             }

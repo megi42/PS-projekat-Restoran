@@ -41,16 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementation\SqlServer\StorageInvoiceSqlServer.cs" />
-    <Compile Include="Implementation\SqlServer\StorageOrderSqlServer.cs" />
-    <Compile Include="Implementation\SqlServer\StorageProductSqlServer.cs" />
-    <Compile Include="Implementation\SqlServer\StorageTableSqlServer.cs" />
-    <Compile Include="Implementation\SqlServer\StorageUserSqlServer.cs" />
-    <Compile Include="IStorageInvoice.cs" />
-    <Compile Include="IStorageOrder.cs" />
-    <Compile Include="IStorageProduct.cs" />
-    <Compile Include="IStorageTable.cs" />
-    <Compile Include="IStorageUser.cs" />
+    <Compile Include="IGenericRepository.cs" />
+    <Compile Include="Implementation\Database\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

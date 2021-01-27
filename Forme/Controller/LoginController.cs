@@ -19,6 +19,7 @@ namespace Forme.Controller
                 EmptyFieldValidation(txtUsername)
                 | !UserControlHelpers.EmptyFieldValidation(txtPassword))
             {
+                MessageBox.Show("Oba polja su obavezna!");
                 return;
             }
             try
@@ -29,9 +30,9 @@ namespace Forme.Controller
                 MainCoordinator.Instance.OpenMainForm();
                 frmLogin.Dispose();
             }
-            catch (SystemOperationException ex)
+            catch (SystemOperationException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Uneti su pogrešni podaci!");
             }
         }
 

@@ -33,7 +33,6 @@ namespace Forme.UserControls
         public ComboBox CbUser { get => cbUser; }
         public TextBox TxtDateFrom { get => txtDateFrom; }
         public TextBox TxtDateTo { get => txtDateTo; }
-        public Label LblPayed { get => lblPayed; }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {

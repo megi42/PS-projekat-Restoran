@@ -2,6 +2,7 @@
 using Forme.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -21,7 +22,19 @@ namespace Forme.Communication
 
         public void SendRequest(Request request)
         {
-            sender.Send(request);
+            try
+            {
+                sender.Send(request);
+            }
+            catch (IOException ex)
+            {
+                throw new ServerException(ex.Message);
+            }
+            catch (SocketException ex)
+            {
+
+                throw new ServerException(ex.Message);
+            }
         }
         public object GetResponseResult()
         {

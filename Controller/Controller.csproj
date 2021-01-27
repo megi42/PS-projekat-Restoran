@@ -53,6 +53,10 @@
       <Project>{dbf5eccb-7048-4e3a-97ef-bd6b1cc581d6}</Project>
       <Name>Storage</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SystemOperations\SystemOperations.csproj">
+      <Project>{646AD5B9-F2D7-4096-AC88-5F7EB8A6BAAE}</Project>
+      <Name>SystemOperations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

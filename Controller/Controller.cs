@@ -1,111 +1,145 @@
 ﻿using Domain;
 using System;
 using Storage;
-using Storage.Implementation.SqlServer;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Storage.Implementation.Database;
+using SystemOperations.ProductSO;
+using SystemOperations.UserSO;
+using SystemOperations.InvoiceSO;
+using SystemOperations.OrderSO;
+using SystemOperations.TableSO;
 
 namespace ControllerBL
 {
     public class Controller
     {
-        private IStorageUser storageUser;
-        private IStorageProduct storageProduct;
-        private IStorageTable storageTable;
-        private IStorageOrder storageOrder;
-        private IStorageInvoice storageInvoice;
-        public User LoggedInUser { get; set; }
+        private IGenericRepository repository;
 
-        private static Controller controller;
+        public User User { get; set; }
+
+        #region singleton
+        private static Controller instance;
+
+        private static object _lock = new object();
         public static Controller Instance
         {
             get
             {
-                if (controller == null)
+                if (instance == null)
                 {
-                    controller = new Controller();
+                    lock (_lock)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new Controller();
+                        }
+                    }
                 }
-                return controller;
+                return instance;
             }
         }
 
         private Controller()
         {
-            storageProduct = new StorageProductSqlServer();
-            storageUser = new StorageUserSqlServer();
-            storageTable = new StorageTableSqlServer();
-            storageOrder = new StorageOrderSqlServer();
-            storageInvoice = new StorageInvoiceSqlServer();
+            repository = new GenericRepository();
         }
+        #endregion
+
         public User Login(User user)
         {
-            foreach (User u in storageUser.GetAll())
-            {
-                if (u.Username == user.Username && u.Password == user.Password)
-                {
-                    LoggedInUser = u;
-                    return u;
-                }
-            }
-            throw new Exception("Sistem ne može da prepozna korisnika!");
-        }
-
-        public List<Order> GetAllOrders()
-        {
-            return storageOrder.GetAll();
-        }
-
-        public List<Invoice> GetAllInvoices()
-        {
-            return storageInvoice.GetAll();
-        }
-
-        public List<Table> GetAllTables()
-        {
-            return storageTable.GetAll();
+            LoginSO so = new LoginSO();
+            so.ExecuteTemplate(user);
+            return so.Result;
         }
 
         public List<Product> GetAllProducts()
         {
-            return storageProduct.GetAll();
+            GetAllProductsSO so = new GetAllProductsSO();
+            so.ExecuteTemplate(new Product());
+            return so.Result;
         }
 
         public void SaveProduct(Product p)
         {
-            p.User = LoggedInUser;
-            storageProduct.Save(p);
+            AddNewProductSO so = new AddNewProductSO();
+            so.ExecuteTemplate(p);
+        }
+
+        public void DeleteProduct(Product p)
+        {
+            DeleteProductSO so = new DeleteProductSO();
+            so.ExecuteTemplate(p);
+        }
+
+        public List<Product> SearchProducts(Product p)
+        {
+            SearchProductsSO so = new SearchProductsSO();
+            so.ExecuteTemplate(p);
+            return so.Result;
+        }
+
+        public void SaveOrder(Order o)
+        {
+            AddNewOrderSO so = new AddNewOrderSO();
+            so.ExecuteTemplate(o);
+        }
+
+        public List<Table> GetAllTables()
+        {
+            GetAllTablesSO so = new GetAllTablesSO();
+            so.ExecuteTemplate(new Table());
+            return so.Result;
+        }
+
+        public List<Order> GetAllOrders()
+        {
+            GetAllOrdersSO so = new GetAllOrdersSO();
+            so.ExecuteTemplate(new Order());
+            return so.Result;
         }
 
         public List<User> GetALLUsers()
         {
-            return storageUser.GetAll();
+            GetAllUsersSO so = new GetAllUsersSO();
+            so.ExecuteTemplate(new User());
+            return so.Result;
         }
 
-        public void SaveOrder(Order order)
+        public List<Order> SearchOrders(Order o)
         {
-            storageOrder.Save(order);
+            SearchOrdersSO so = new SearchOrdersSO();
+            so.ExecuteTemplate(o);
+            return so.Result;
         }
 
-        public void DeleteProduct(Product product)
+        public List<Invoice> GetAllInvoices()
         {
-            storageProduct.Delete(product);
+            GetAllInvoicesSO so = new GetAllInvoicesSO();
+            so.ExecuteTemplate(new Invoice());
+            return so.Result;
         }
 
-        public List<OrderItem> GetOrderItems(Order order)
+        public List<OrderItem> GetOrderItems(OrderItem oi)
         {
-            return storageOrder.GetOrderItems(order);
+            GetOrderItemsSO so = new GetOrderItemsSO();
+            so.ExecuteTemplate(oi);
+            return so.Result;
         }
 
-        public void SaveChangesToOrder(Order order, int orderId)
+        public void UpdateOrder(Order o)
         {
-            storageOrder.SaveChanges(order, orderId);
+            ChangeOrderSO so = new ChangeOrderSO();
+            so.ExecuteTemplate(o);
         }
 
-        public void SaveInvoice(Invoice invoice)
+        public void SaveInvoice(Invoice i)
         {
-            storageInvoice.Save(invoice);
+            AddInvoiceSO so = new AddInvoiceSO();
+            so.ExecuteTemplate(i);
         }
+
     }
 }

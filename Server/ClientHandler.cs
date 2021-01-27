@@ -3,6 +3,7 @@ using ControllerBL;
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
@@ -15,10 +16,13 @@ namespace Server
     public class ClientHandler
     {
         private Socket client;
+        private readonly BindingList<User> users;
 
-        public ClientHandler(Socket client)
+        private User loggedInUser;
+        public ClientHandler(Socket client, System.ComponentModel.BindingList<User> users)
         {
             this.client = client;
+            this.users = users;
         }
 
         public void StartHandler()
@@ -57,16 +61,26 @@ namespace Server
             switch (request.Operation)
             {
                 case Operation.Login:
-                    response.Result = Controller.Instance.Login((User)request.RequestObject);
+                    loggedInUser= Controller.Instance.Login((User)request.RequestObject);
+                    response.Result = loggedInUser;
                     break;
                 case Operation.SaveProduct:
-                    Controller.Instance.SaveProduct((Product)request.RequestObject);
+                    Product product = (Product)request.RequestObject;
+                    product.User = loggedInUser;
+                    product.PriceWithVAT = (product.PriceWithoutVAT + (product.PriceWithoutVAT * product.VAT) / 100);
+                    Controller.Instance.SaveProduct(product);
                     break;
                 case Operation.GetAllProducts:
                     response.Result = Controller.Instance.GetAllProducts();
                     break;
                 case Operation.RemoveProduct:
                     Controller.Instance.DeleteProduct((Product)request.RequestObject);
+                    break;
+                case Operation.SearchProducts:
+                    response.Result = Controller.Instance.SearchProducts((Product)request.RequestObject);
+                    break;
+                case Operation.SearchOrders:
+                    response.Result = Controller.Instance.SearchOrders((Order)request.RequestObject);
                     break;
                 case Operation.GetAllOrders:
                     response.Result = Controller.Instance.GetAllOrders();
@@ -81,20 +95,24 @@ namespace Server
                     response.Result = Controller.Instance.GetAllInvoices();
                     break;
                 case Operation.GetOrderItems:
-                    response.Result = Controller.Instance.GetOrderItems((Order)request.RequestObject);
+                    response.Result = Controller.Instance.GetOrderItems((OrderItem)request.RequestObject);
                     break;
                 case Operation.SaveOrder:
                     Controller.Instance.SaveOrder((Order)request.RequestObject);
                     break;
                 case Operation.SaveChangesToOrder:
-                    OrderChanges oc = (OrderChanges)request.RequestObject;
-                    Controller.Instance.SaveChangesToOrder(oc.Order, oc.Id);
+                    Controller.Instance.UpdateOrder((Order)request.RequestObject);
                     break;
                 case Operation.SaveInvoice:
                     Controller.Instance.SaveInvoice((Invoice)request.RequestObject);
                     break;
             }
             return response;
+        }
+
+        internal void Stop()
+        {
+            client.Close();
         }
     }
 }

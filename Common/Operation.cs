@@ -15,6 +15,8 @@ namespace Common
         GetAllUsers,
         GetAllInvoices,
         GetOrderItems,
+        SearchProducts,
+        SearchOrders,
         SaveProduct,
         SaveOrder,
         SaveInvoice,
