@@ -169,6 +169,15 @@ namespace Forme.Controller
             order.DateTo = DateTime.ParseExact(uCAllOrders.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
             List<Order> orders = Communication.Communication.Instance.SearchOrders(order);
             uCAllOrders.DgvOrders.DataSource = orders;
+            if (orders.Count == 0)
+            {
+                MessageBox.Show("Sistem nije uspeo da nađe porudžbine po zadatim vrednostima!");
+            }
+            else
+            {
+                MessageBox.Show("Sistem je našao porudžbine po zadatim vrednostima");
+            }
+
         }
 
         internal void Show(UCAllOrders uCAllOrders)
@@ -180,18 +189,27 @@ namespace Forme.Controller
                 OrderItem orderItem = new OrderItem();
                 orderItem.OrderId = order.OrderId;
 
-                List<OrderItem> orderItems = Communication.Communication.Instance.GetOrderItems(orderItem);
-                uCAllOrders.DgvItems.DataSource = orderItems;
+                try
+                {
+                    List<OrderItem> orderItems = Communication.Communication.Instance.GetOrderItems(orderItem);
+                    uCAllOrders.DgvItems.DataSource = orderItems;
 
-                uCAllOrders.DgvItems.Columns["OrderId"].Visible = false;
-                uCAllOrders.DgvItems.Columns["Number"].HeaderText = "RB";
-                uCAllOrders.DgvItems.Columns["Product"].HeaderText = "Proizvod";
-                uCAllOrders.DgvItems.Columns["Pieces"].HeaderText = "Komada";
-                uCAllOrders.DgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
-                uCAllOrders.DgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
-                uCAllOrders.DgvItems.Columns["Currency"].HeaderText = "Valuta";
-                uCAllOrders.DgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
-                uCAllOrders.DgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
+                    uCAllOrders.DgvItems.Columns["OrderId"].Visible = false;
+                    uCAllOrders.DgvItems.Columns["Number"].HeaderText = "RB";
+                    uCAllOrders.DgvItems.Columns["Product"].HeaderText = "Proizvod";
+                    uCAllOrders.DgvItems.Columns["Pieces"].HeaderText = "Komada";
+                    uCAllOrders.DgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
+                    uCAllOrders.DgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
+                    uCAllOrders.DgvItems.Columns["Currency"].HeaderText = "Valuta";
+                    uCAllOrders.DgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
+                    uCAllOrders.DgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
+
+                    MessageBox.Show("Sistem je učitao podatke o porudžbini!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sistem ne može da učita porudžbinu!");
+                }
             }
             else
             {
@@ -295,7 +313,7 @@ namespace Forme.Controller
                     OrderItems = bindingItems.ToList()
                 };
                 Communication.Communication.Instance.SaveOrder(order);
-                MessageBox.Show("Porudžbina je sačuvana!");
+                MessageBox.Show("Sistem je zapamtio porudžbinu!");
                 uCOrder.Visible = false;
             }
             catch (Exception)
@@ -333,6 +351,14 @@ namespace Forme.Controller
             order.DateTo = DateTime.ParseExact(uCChangeOrder.TxtDateTo.Text, "dd.MM.yyyy.", CultureInfo.InvariantCulture);
             List<Order> orders = Communication.Communication.Instance.SearchOrders(order);
             uCChangeOrder.DgvOrders.DataSource = orders;
+            if(orders.Count == 0)
+            {
+                MessageBox.Show("Sistem nije uspeo da nađe porudžbine po zadatim vrednostima!");
+            }
+            else
+            {
+                MessageBox.Show("Sistem je našao porudžbine po zadatim vrednostima");
+            }
         }
 
         internal void RemoveFilters_1(UCChangeOrder uCChangeOrder)
@@ -382,40 +408,48 @@ namespace Forme.Controller
                 OrderItem orderItem = new OrderItem();
                 orderItem.OrderId = orderId;
 
-                List<OrderItem> orderItemsList = Communication.Communication.Instance.GetOrderItems(orderItem);
-                orderItems = new BindingList<OrderItem>(orderItemsList);
-                uCChangeOrder.DgvItems.DataSource = orderItems;
+                try
+                {
+                    List<OrderItem> orderItemsList = Communication.Communication.Instance.GetOrderItems(orderItem);
+                    orderItems = new BindingList<OrderItem>(orderItemsList);
+                    uCChangeOrder.DgvItems.DataSource = orderItems;
 
-                uCChangeOrder.DgvItems.Columns["OrderId"].Visible = false;
-                uCChangeOrder.DgvItems.Columns["Number"].HeaderText = "RB";
-                uCChangeOrder.DgvItems.Columns["Product"].HeaderText = "Proizvod";
-                uCChangeOrder.DgvItems.Columns["Pieces"].HeaderText = "Komada";
-                uCChangeOrder.DgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
-                uCChangeOrder.DgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
-                uCChangeOrder.DgvItems.Columns["Currency"].HeaderText = "Valuta";
-                uCChangeOrder.DgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
-                uCChangeOrder.DgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
+                    uCChangeOrder.DgvItems.Columns["OrderId"].Visible = false;
+                    uCChangeOrder.DgvItems.Columns["Number"].HeaderText = "RB";
+                    uCChangeOrder.DgvItems.Columns["Product"].HeaderText = "Proizvod";
+                    uCChangeOrder.DgvItems.Columns["Pieces"].HeaderText = "Komada";
+                    uCChangeOrder.DgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
+                    uCChangeOrder.DgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
+                    uCChangeOrder.DgvItems.Columns["Currency"].HeaderText = "Valuta";
+                    uCChangeOrder.DgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
+                    uCChangeOrder.DgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
 
-                uCChangeOrder.CbTableI.Text = order.Table.ToString();
-                uCChangeOrder.CbProduct.Enabled = true;
-                uCChangeOrder.CbProduct.DataSource = Communication.Communication.Instance.GetAllProducts();
-                uCChangeOrder.CbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
-                uCChangeOrder.CbProduct.SelectedIndex = -1;
-                uCChangeOrder.TxtPieces.Enabled = true;
+                    uCChangeOrder.CbTableI.Text = order.Table.ToString();
+                    uCChangeOrder.CbProduct.Enabled = true;
+                    uCChangeOrder.CbProduct.DataSource = Communication.Communication.Instance.GetAllProducts();
+                    uCChangeOrder.CbProduct.DropDownStyle = ComboBoxStyle.DropDownList;
+                    uCChangeOrder.CbProduct.SelectedIndex = -1;
+                    uCChangeOrder.TxtPieces.Enabled = true;
 
-                uCChangeOrder.LblUser.Text = order.User.ToString();
-                uCChangeOrder.TxtCurrency.Text = order.Currency.ToString();
-                uCChangeOrder.TxtTotal.Text = order.TotalWithoutVAT.ToString();
-                uCChangeOrder.TxtTotalVAT.Text = order.TotalWithVAT.ToString();
-                uCChangeOrder.TxtDate.Text = order.DateTime.ToString();
+                    uCChangeOrder.LblUser.Text = order.User.ToString();
+                    uCChangeOrder.TxtCurrency.Text = order.Currency.ToString();
+                    uCChangeOrder.TxtTotal.Text = order.TotalWithoutVAT.ToString();
+                    uCChangeOrder.TxtTotalVAT.Text = order.TotalWithVAT.ToString();
+                    uCChangeOrder.TxtDate.Text = order.DateTime.ToString();
 
-                total = order.TotalWithoutVAT;
-                totalVAT = order.TotalWithVAT;
+                    total = order.TotalWithoutVAT;
+                    totalVAT = order.TotalWithVAT;
 
-                uCChangeOrder.BtnAdd.Enabled = true;
-                uCChangeOrder.BtnCancel.Enabled = true;
-                uCChangeOrder.BtnRemove.Enabled = true;
-                uCChangeOrder.BtnSave.Enabled = true;
+                    uCChangeOrder.BtnAdd.Enabled = true;
+                    uCChangeOrder.BtnCancel.Enabled = true;
+                    uCChangeOrder.BtnRemove.Enabled = true;
+                    uCChangeOrder.BtnSave.Enabled = true;
+                    MessageBox.Show("Sistem je učitao porudžbinu!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Sistem ne može da učita porudžbinu!");
+                }
             }
             else
             {
@@ -531,7 +565,7 @@ namespace Forme.Controller
                 };
 
                 Communication.Communication.Instance.UpdateOrder(order);
-                MessageBox.Show("Izmene su sačuvane!");
+                MessageBox.Show("Sistem je zapamtio izmene!");
                 uCChangeOrder.Visible = false;
 
             }
@@ -613,66 +647,75 @@ namespace Forme.Controller
                     return;
                 }
 
-                currency = order.Currency;
-
-                uCInvoice.TxtTable.Text = order.Table.ToString();
-                uCInvoice.TxtTotal.Text = order.TotalWithoutVAT.ToString();
-                uCInvoice.TxtTotalVAT.Text = order.TotalWithVAT.ToString();
-                uCInvoice.TxtCurrency.Text = order.Currency.ToString();
-
-                uCInvoice.BtnCancel.Enabled = true;
-                uCInvoice.BtnPay.Enabled = true;
-
-                DateTime dateTime = DateTime.Now;
-                uCInvoice.TxtDate.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
-
-                User user = MainCoordinator.Instance.User;
-                uCInvoice.TxtUser.Text = user.ToString();
-
-                double totalToPay = Math.Ceiling(order.TotalWithVAT);
-                uCInvoice.TxtTotalToPay.Text = totalToPay.ToString();
-
-                uCInvoice.CbPayment.Enabled = true;
-                uCInvoice.CbPayment.DataSource = Enum.GetValues(typeof(PaymentType));
-                uCInvoice.CbPayment.DropDownStyle = ComboBoxStyle.DropDownList;
-                uCInvoice.CbPayment.SelectedIndex = -1;
-
-                OrderItem orderItem = new OrderItem();
-                orderItem.OrderId = order.OrderId;
-
-                orderItems = new BindingList<OrderItem>(Communication.Communication.Instance.GetOrderItems(orderItem));
-                order.OrderItems = orderItems.ToList();
-
-                foreach (OrderItem oi in orderItems)
+                try
                 {
-                    InvoiceItem ii = new InvoiceItem
+                    currency = order.Currency;
+
+                    uCInvoice.TxtTable.Text = order.Table.ToString();
+                    uCInvoice.TxtTotal.Text = order.TotalWithoutVAT.ToString();
+                    uCInvoice.TxtTotalVAT.Text = order.TotalWithVAT.ToString();
+                    uCInvoice.TxtCurrency.Text = order.Currency.ToString();
+
+                    uCInvoice.BtnCancel.Enabled = true;
+                    uCInvoice.BtnPay.Enabled = true;
+
+                    DateTime dateTime = DateTime.Now;
+                    uCInvoice.TxtDate.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+
+                    User user = MainCoordinator.Instance.User;
+                    uCInvoice.TxtUser.Text = user.ToString();
+
+                    double totalToPay = Math.Ceiling(order.TotalWithVAT);
+                    uCInvoice.TxtTotalToPay.Text = totalToPay.ToString();
+
+                    uCInvoice.CbPayment.Enabled = true;
+                    uCInvoice.CbPayment.DataSource = Enum.GetValues(typeof(PaymentType));
+                    uCInvoice.CbPayment.DropDownStyle = ComboBoxStyle.DropDownList;
+                    uCInvoice.CbPayment.SelectedIndex = -1;
+
+                    OrderItem orderItem = new OrderItem();
+                    orderItem.OrderId = order.OrderId;
+
+                    orderItems = new BindingList<OrderItem>(Communication.Communication.Instance.GetOrderItems(orderItem));
+                    order.OrderItems = orderItems.ToList();
+
+                    foreach (OrderItem oi in orderItems)
                     {
-                        OrderId = oi.OrderId,
-                        Number = oi.Number,
-                        Product = oi.Product,
-                        PriceWithoutVAT = oi.PriceWithoutVAT,
-                        PriceWithVAT = oi.PriceWithVAT,
-                        Pieces = oi.Pieces,
-                        TotalWithoutVAT = oi.TotalWithoutVAT,
-                        TotalWithVAT = oi.TotalWithVAT,
-                        Currency = oi.Currency
-                    };
+                        InvoiceItem ii = new InvoiceItem
+                        {
+                            OrderId = oi.OrderId,
+                            Number = oi.Number,
+                            Product = oi.Product,
+                            PriceWithoutVAT = oi.PriceWithoutVAT,
+                            PriceWithVAT = oi.PriceWithVAT,
+                            Pieces = oi.Pieces,
+                            TotalWithoutVAT = oi.TotalWithoutVAT,
+                            TotalWithVAT = oi.TotalWithVAT,
+                            Currency = oi.Currency
+                        };
 
-                    invoiceItems.Add(ii);
+                        invoiceItems.Add(ii);
+                    }
+
+                    uCInvoice.DgvItems.DataSource = invoiceItems;
+
+                    uCInvoice.DgvItems.Columns["InvoiceId"].Visible = false;
+                    uCInvoice.DgvItems.Columns["OrderId"].Visible = false;
+                    uCInvoice.DgvItems.Columns["Number"].HeaderText = "RB";
+                    uCInvoice.DgvItems.Columns["Product"].HeaderText = "Proizvod";
+                    uCInvoice.DgvItems.Columns["Pieces"].HeaderText = "Komada";
+                    uCInvoice.DgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
+                    uCInvoice.DgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
+                    uCInvoice.DgvItems.Columns["Currency"].HeaderText = "Valuta";
+                    uCInvoice.DgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
+                    uCInvoice.DgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
+
+                    MessageBox.Show("Sistem je kreirao račun");
                 }
-
-                uCInvoice.DgvItems.DataSource = invoiceItems;
-
-                uCInvoice.DgvItems.Columns["InvoiceId"].Visible = false;
-                uCInvoice.DgvItems.Columns["OrderId"].Visible = false;
-                uCInvoice.DgvItems.Columns["Number"].HeaderText = "RB";
-                uCInvoice.DgvItems.Columns["Product"].HeaderText = "Proizvod";
-                uCInvoice.DgvItems.Columns["Pieces"].HeaderText = "Komada";
-                uCInvoice.DgvItems.Columns["PriceWithoutVAT"].HeaderText = "Cena";
-                uCInvoice.DgvItems.Columns["PriceWithVAT"].HeaderText = "Cena(PDV)";
-                uCInvoice.DgvItems.Columns["Currency"].HeaderText = "Valuta";
-                uCInvoice.DgvItems.Columns["TotalWithoutVAT"].HeaderText = "Ukupno";
-                uCInvoice.DgvItems.Columns["TotalWithVAT"].HeaderText = "Ukupno(PDV)";
+                catch (Exception)
+                {
+                    MessageBox.Show("Sistem ne može da kreira račun");
+                }
             }
             else
             {
@@ -913,7 +956,7 @@ namespace Forme.Controller
                 order.State = "Placeno";
                 Communication.Communication.Instance.UpdateOrder(order);
 
-                MessageBox.Show("Račun je sačuvan!");
+                MessageBox.Show("Sistem je zapamtio račun!");
                 uCInvoice.Visible = false;
             }
             catch (Exception)

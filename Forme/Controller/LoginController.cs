@@ -32,7 +32,7 @@ namespace Forme.Controller
             }
             catch (SystemOperationException)
             {
-                MessageBox.Show("Uneti su pogrešni podaci!");
+                MessageBox.Show("Sistem ne može da prepozna radnika!");
             }
         }
 

@@ -61,6 +61,10 @@ namespace Forme.Controller
             Product product = new Product { Name = text };
             List<Product> products = Communication.Communication.Instance.SearchProducts(product);
             uCAllProducts.DgvProducts.DataSource = products;
+            if(products.Count == 0)
+            {
+                MessageBox.Show("Sistem ne može da nađe proizvode po zadatoj vrednosti!");
+            }
         }
 
         internal void Search_1(UCRemoveProduct uCRemoveProduct)
@@ -69,6 +73,10 @@ namespace Forme.Controller
             Product product = new Product { Name = text };
             List<Product> products = Communication.Communication.Instance.SearchProducts(product);
             uCRemoveProduct.DgvProducts.DataSource = products;
+            if (products.Count == 0)
+            {
+                MessageBox.Show("Sistem ne može da nađe proizvode po zadatoj vrednosti!");
+            }
         }
 
         internal void Save(UCProduct ucProduct)
@@ -94,12 +102,12 @@ namespace Forme.Controller
                 p.Type = (ProductType)ucProduct.CbType.SelectedItem;
 
                 Communication.Communication.Instance.SaveProduct(p);
-                MessageBox.Show("Proizvod je sačuvan");
+                MessageBox.Show("Sistem je zapamtio proizvod!");
                 ucProduct.Visible = false;
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne može da sačuva proizvod!");
+                MessageBox.Show("Sistem ne može da zapamti proizvod!");
             }
         }
 
@@ -112,7 +120,7 @@ namespace Forme.Controller
                 try
                 {
                     Communication.Communication.Instance.RemoveProduct(product);
-                    MessageBox.Show("Proizvod je obrisan!");
+                    MessageBox.Show("Sistem je obrisao proizvod!");
                     uCRemoveProduct.Visible = false;
                 }
                 catch (Exception)
